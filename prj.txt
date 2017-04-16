@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Shield UI Lite Example</title>
+    <link id="themecss" rel="stylesheet" type="text/css" href="bower_components/shieldui-lite/dist/css/light/all.min.css" />
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
+</head>
+<body>
+    <input type="text" id="date" name="date" />
+    <script type="text/javascript">
+        jQuery(function($) {
+            $("#date").shieldDatePicker();
+        });
+    </script>
+</body>
+</html>
