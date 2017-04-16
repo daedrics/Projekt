@@ -1,10 +1,10 @@
+
+
 <?php
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 4/16/2017
- * Time: 7:10 PM
- */
+include("../db_connect.php");
+$query = mysqli_query($link,"SELECT * FROM `operator` WHERE `Id_Student` = '$pid';");
+
+
 
 
 ?>
