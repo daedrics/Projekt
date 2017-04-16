@@ -23,6 +23,7 @@ if(isset($_POST['login_submit'])) {
         $pid=$r[0];
         $_SESSION['pid'] = $pid;
         header("Location: crm_index.html");
+        echo "redi";
     }
 
     else {
