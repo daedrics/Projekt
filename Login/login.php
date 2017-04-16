@@ -22,10 +22,18 @@ if(isset($_POST['login_submit'])) {
         $r=mysqli_fetch_row($query);
         $pid=$r[0];
         $_SESSION['pid'] = $pid;
-        header("Location: ../User/crm_arkiv.html");
+        header("Location: ../Admin/crm_arkiv.html");
 
     }
+    $query = mysqli_query($link, "SELECT * FROM `operator` WHERE `username` = '$usrn' AND `password` = '$pass';");
+    $rows=mysqli_num_rows($query);
+     if($rows!=0){
 
+        $r=mysqli_fetch_row($query);
+        $pid=$r[0];
+        $_SESSION['pid'] = $pid;
+        header("Location: ../User/crm_arkiv.html");
+    }
     else {
         echo '<script language="javascript">';
         echo 'alert("Te dhenat nuk jane te sakta!")';
