@@ -43,9 +43,8 @@ if(isset($_POST["export_excel"]))
 		}
 		$output .= '</table>' ;
 		header("Content-Type: application/xls");    
-header("Content-Disposition: attachment; filename=$filename.xls");  
-header("Pragma: no-cache"); 
-header("Expires: 0");
+header("Content-Disposition: attachment; filename=raporti.xls");  
+
 		echo $output;
 		
 		

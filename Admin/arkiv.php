@@ -93,7 +93,7 @@ else{
                 </div>
 
 			</div>
-<form name ="excel.php" method="post">
+<form action ="excel.php" method="post" Content-Type= "application/xls">
 	
 	<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
 	</form>
