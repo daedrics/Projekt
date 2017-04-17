@@ -8,7 +8,7 @@
 
 
 $db_hostname = 'localhost';
-$db_database = 'CRM';
+$db_database = 'crm';
 $db_username = 'root';
 $db_password = '';
 

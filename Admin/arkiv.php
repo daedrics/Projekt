@@ -93,7 +93,10 @@ else{
                 </div>
 
 			</div>
-
+<form name ="excel.php" method="post">
+	
+	<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
+	</form>
 
 		</div>
 		<div class="row">
@@ -155,5 +158,12 @@ else{
             });
         });
     </script>
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>
