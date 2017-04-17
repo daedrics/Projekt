@@ -25,29 +25,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="getdata.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="getdata.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/User/getdata.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
               <folding>
-                <marker date="1492442475089" expanded="true" signature="67:111" ph="SELECT * FRO... operator" />
+                <marker date="1492448086480" expanded="true" signature="67:111" ph="SELECT * FRO... operator" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crm_arkiv.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="crm_arkiv.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/crm_arkiv.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="43" column="110" lean-forward="false" selection-start-line="43" selection-start-column="110" selection-end-line="43" selection-end-column="110" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>steve</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -197,12 +202,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1492335366700</updated>
-      <workItem from="1492335381216" duration="9895000" />
+      <workItem from="1492335381216" duration="10637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9895000" />
+    <option name="totallyTimeSpent" value="10637000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -317,21 +322,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/User/getdata.php">
+    <entry file="file://$PROJECT_DIR$/User/crm_arkiv.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <marker date="1492442475089" expanded="true" signature="67:111" ph="SELECT * FRO... operator" />
-          </folding>
+        <state relative-caret-position="220">
+          <caret line="43" column="110" lean-forward="false" selection-start-line="43" selection-start-column="110" selection-end-line="43" selection-end-column="110" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/User/crm_arkiv.html">
+    <entry file="file://$PROJECT_DIR$/User/getdata.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <marker date="1492448086480" expanded="true" signature="67:111" ph="SELECT * FRO... operator" />
+          </folding>
         </state>
       </provider>
     </entry>
