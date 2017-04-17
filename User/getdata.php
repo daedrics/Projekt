@@ -10,7 +10,7 @@ $mbiemer=$row[2];
 $username=$row[3];
 $pass=$row[4];
 
-echo "redi";
+
 
 
 
