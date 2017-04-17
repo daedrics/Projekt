@@ -27,7 +27,7 @@ else{
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
 
-    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/dark-bootstrap/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/light/all.min.css" />
 
     <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
