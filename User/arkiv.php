@@ -1,3 +1,16 @@
+<?php session_start();
+if($_SESSION==NULL){
+    echo '<script language="javascript">';
+    echo 'alert("Duhet te beni log in ne fillim. \n")';
+    echo '</script>';
+    echo "<script> location.href='../Login/index.html'; </script>";
+}
+else{
+    $pid = $_SESSION['pid'];
+    include("getdata.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +49,12 @@
                     <li class="selected"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="portfolio.html"><i class="fa fa-level-up"></i> Inserisci</a></li>
                     <li><a href="blog.html"><i class="fa fa-archive"></i> Archivio</a></li>
-                    
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
-                    
+
                     <li class="dropdown user-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Steve Miller<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                             <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
@@ -64,7 +77,7 @@
 			<div class="col-lg-12">
 				<div class="panel panel-primary">
 				<div class="panel-body">
-					
+
 					<table class="table">
 					<tbody>
 					<tr>
@@ -72,35 +85,35 @@
 					<td>OK</td>
 					<td>Pritje</td>
 					<td>KO</td>
-					
+
 					</tr>
 					</tbody>
 					</table>
 				 </div>
                 </div>
-				
+
 			</div>
-		
-		
+
+
 		</div>
 		<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
-                        
+
                         <div class="panel-body">
                             <div id="shieldui-grid1"></div>
                         </div>
                     </div>
                 </div>
         </div>
-		
+
         </div>
     </div>
-	
+
 
 	<script type="text/javascript">
-        jQuery(function ($) {
-            var traffic = [
+    jQuery(function ($) {
+        var traffic = [
                 {
                     Source: "Direct", Amount: 323, Change: 53, Percent: 23, Target: 600
                 },
@@ -118,29 +131,29 @@
                 }];
 
 
-            
 
-            
+
+
 
             $("#shieldui-grid1").shieldGrid({
                 dataSource: {
-                    data: traffic
+            data: traffic
                 },
                 sorting: {
-                    multiple: false
+            multiple: false
                 },
                 rowHover: true,
                 paging: {
-                pageSize: 5
+            pageSize: 5
             },
                 columns: [
                 { field: "Source", width: "170px", title: "Source" },
-                { field: "Amount", title: "Amount" },                
+                { field: "Amount", title: "Amount" },
                 { field: "Percent", title: "Percent", format: "{0} %" },
                 { field: "Target", title: "Target" },
                 ]
-            });            
-        });        
+            });
+        });
     </script>
 </body>
 </html>

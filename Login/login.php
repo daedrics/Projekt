@@ -22,7 +22,7 @@ if(isset($_POST['login_submit'])) {
         $r=mysqli_fetch_row($query);
         $pid=$r[0];
         $_SESSION['pid'] = $pid;
-        header("Location: ../Admin/crm_arkiv.html");
+        header("Location: ../Admin/arkiv.php");
 
     }
     $query = mysqli_query($link, "SELECT * FROM `operator` WHERE `username` = '$usrn' AND `password` = '$pass';");
