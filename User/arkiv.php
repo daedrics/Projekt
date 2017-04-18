@@ -155,6 +155,17 @@ else{
             });
         });
     </script>
-    
+    <script type="text/javascript">
+        var _delay = 3000;
+        function checkLoginStatus(){
+            $.get("../checkStatus.php", function(data){
+                if(!data) {
+                    window.alert("Duhet te besh log in")
+                    window.location = "../logout.php";
+                }
+                setTimeout(function(){  checkLoginStatus(); }, _delay);
+            });
+        }
+        checkLoginStatus();</script>
 </body>
 </html>

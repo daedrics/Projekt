@@ -32,6 +32,7 @@ if(isset($_POST['login_submit'])) {
 
         $r=mysqli_fetch_row($query);
         $pid=$r[0];
+         $_SESSION['user']=$r[3];
         $_SESSION['pid'] = $pid;
         header("Location: ../User/arkiv.php");
     }
