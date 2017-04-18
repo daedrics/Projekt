@@ -114,21 +114,16 @@ else{
 	<script type="text/javascript">
     jQuery(function ($) {
         var traffic = [
-                {
-                    Source: "Direct", Amount: 323, Change: 53, Percent: 23, Target: 600
-                },
-                {
-                    Source: "Refer", Amount: 345, Change: 34, Percent: 45, Target: 567
-                },
-                {
-                    Source: "Social", Amount: 567, Change: 67, Percent: 23, Target: 456
-                },
-                {
-                    Source: "Search", Amount: 234, Change: 23, Percent: 56, Target: 890
-                },
-                {
-                    Source: "Internal", Amount: 111, Change: 78, Percent: 12, Target: 345
-                }];
+            <?php
+
+            for($i=0;$i<sizeof($id_k);$i++){
+                echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'", Status: "'.$status[$i].'"}';
+                if($i!=sizeof($id_k)-1){
+                    echo ',';
+                }
+            }
+            ?>
+                ];
 
 
 
@@ -147,10 +142,11 @@ else{
             pageSize: 5
             },
                 columns: [
-                { field: "Source", width: "170px", title: "Source" },
-                { field: "Amount", title: "Amount" },
-                { field: "Percent", title: "Percent", format: "{0} %" },
-                { field: "Target", title: "Target" },
+                { field: "Id", width: "170px", title: "Id" },
+                { field: "Data", title: "Data" },
+                { field: "Emer", title: "Emer" },
+                { field: "Mbiemer", title: "Mbiemer" },
+                    { field: "Status", title: "Status" },
                 ]
             });
         });
