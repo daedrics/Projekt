@@ -92,12 +92,13 @@ else{
 				 </div>
                 </div>
 
-			</div>
-<form action ="excel.php" method="post" Content-Type= "application/xls">
+			</div >
+			<div style="margin-left:17px ;padding-top :50px">
+<form action ="excel.php" method="post" Content-Type= "application/xls" >
 	
 	<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
 	</form>
-
+</div>
 		</div>
 		<div class="row">
                 <div class="col-lg-12">
@@ -114,7 +115,7 @@ else{
     </div>
 
 
-	<script type="text/javascript">
+	<script  type="text/javascript">
     jQuery(function ($) {
         var traffic = [
                 {
