@@ -21,6 +21,7 @@ if(isset($_POST['login_submit'])) {
     if($rows!=0){
         $r=mysqli_fetch_row($query);
         $pid=$r[0];
+        $_SESSION['user']=$r[3];
         $_SESSION['pid'] = $pid;
         header("Location: ../Admin/arkiv.php");
 
@@ -38,7 +39,7 @@ if(isset($_POST['login_submit'])) {
         echo '<script language="javascript">';
         echo 'alert("Te dhenat nuk jane te sakta!")';
         echo '</script>';
-        echo "<script type='text/javascript'>location.href = 'index.html';</script>";
+        echo "<script type='text/javascript'>location.href = 'index.php';</script>";
 
     }
 }

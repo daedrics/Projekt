@@ -3,7 +3,7 @@ if($_SESSION==NULL){
     echo '<script language="javascript">';
     echo 'alert("Duhet te beni log in ne fillim. \n")';
     echo '</script>';
-    echo "<script> location.href='../Login/index.html'; </script>";
+    echo "<script> location.href='../Login/index.php'; </script>";
 }
 else{
     $pid = $_SESSION['pid'];

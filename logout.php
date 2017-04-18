@@ -6,5 +6,5 @@ session_unset();
 session_destroy();
 
 
-echo "<script> location.href='Login/index.html'; </script>";
+echo "<script> location.href='Login/index.php'; </script>";
 ?>
