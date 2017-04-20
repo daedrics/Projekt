@@ -77,47 +77,46 @@ else{
 			<div class="col-lg-12">
 				<div class="panel panel-primary">
 				<div class="panel-body">
-
-					<table class="table">
-					<tbody>
-					<tr>
-					<td>Totale</td>
-					<td>OK</td>
-					<td>Pritje</td>
-					<td>KO</td>
-
-					</tr>
-					</tbody>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Totale</td>
+                                <td>OK</td>
+                                <td>Pritje</td>
+                                <td>KO</td>
+                            </tr>
+                        </tbody>
 					</table>
 				 </div>
                 </div>
-
 			</div>
-
-
 		</div>
-		<div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
+            <div style="margin-left:17px ;padding-bottom :30px" class="row">
 
-                        <div class="panel-body">
-                            <div id="shieldui-grid1"></div>
-                        </div>
-                    </div>
-                </div>
-        </div>
+                <div class="col-lg-1"><label style="font-size:18px; padding-top: 5px">Visualizza</label></div>
+                <div class="col-lg-1 ">
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <select  class="form-control" id="elementi">
-                        <option value="" disabled selected>Scegli Pagina</option>
-                        <option value="1">1</option>
+                    <select  class="form-control" onchange="setPage();" id="elementi">
+
+                        <option value="1" selected>1</option>
                         <option value="2">2</option>
 
                     </select>
-                    <input class="btn btn-primary" type="button" onclick="setPage();" value="kooot"/>
+
+                </div>
+                <div class="col-lg-1"><label style="font-size:18px; padding-top: 5px">Elementi</label></div>
+
+            </div>
+		<div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div id="shieldui-grid1"></div>
+                    </div>
                 </div>
             </div>
+        </div>
+
         </div>
     </div>
 
@@ -136,12 +135,6 @@ else{
             }
             ?>
                 ];
-
-
-
-
-
-
             $("#shieldui-grid1").shieldGrid({
                 dataSource: {
             data: traffic
@@ -161,10 +154,6 @@ else{
                     { field: "Status", title: "Status" },
                 ]
             });
-
-
-
-
         });
     function setPage() {
         var x=document.getElementById('elementi').value;
@@ -183,6 +172,7 @@ else{
                 setTimeout(function(){  checkLoginStatus(); }, _delay);
             });
         }
-        checkLoginStatus();</script>
+        checkLoginStatus();
+    </script>
 </body>
 </html>
