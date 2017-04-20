@@ -74,7 +74,7 @@ else{
         </nav>
         <div id="page-wrapper">
             <h3 class="text-muted" style="padding-bottom: 20px">Raccolta Dati (aggiungi contratto)</h3>
-            <form class="text-primary">
+            <form class="text-primary" >
                 <div class="row">
                     <div class="form-group col-lg-1">
                         <label >Operatori</label>
