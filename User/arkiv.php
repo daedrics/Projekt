@@ -107,8 +107,20 @@ else{
                 </div>
         </div>
 
+            <div class="row">
+                <div class="col-lg-3">
+                    <select  class="form-control" id="elementi">
+                        <option value="" disabled selected>Scegli Pagina</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+
+                    </select>
+                    <input class="btn btn-primary" type="button" onclick="setPage();" value="kooot"/>
+                </div>
+            </div>
         </div>
     </div>
+
 
 
 	<script type="text/javascript">
@@ -139,7 +151,7 @@ else{
                 },
                 rowHover: true,
                 paging: {
-            pageSize: 5
+            pageSize: 1
             },
                 columns: [
                 { field: "Id", width: "170px", title: "Id" },
@@ -149,7 +161,16 @@ else{
                     { field: "Status", title: "Status" },
                 ]
             });
+
+
+
+
         });
+    function setPage() {
+        var x=document.getElementById('elementi').value;
+        $("#shieldui-grid1").swidget().pager.pageSize(x); // Sets the page size to 4
+        $("#shieldui-grid1").refresh();
+    }
     </script>
     <script type="text/javascript">
         var _delay = 3000;
