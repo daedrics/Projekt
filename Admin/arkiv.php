@@ -89,15 +89,23 @@ else{
 					</tr>
 					</tbody>
 					</table>
+	
 				 </div>
                 </div>
 
 			</div >
 			<div style="margin-left:17px ;padding-top :50px">
 			
-<form action ="excel.php" method="post" Content-Type= "application/xls" >	
+<form action ="excel.php" method="post" Content-Type= "application/xls"  >	
 
 	<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
+	
+	<label for="operatori"> Visualissa
+                        <select  id="opsion"class="form-control" name="tipologia" onchange="getSelectedValue();">
+                            <option  value="5" >5</option>
+                            <option selected value="8">8</option>
+                            <option value="4">4</option>
+                        </select> elementi </label>
 	</form>
 </div>
 		</div>
@@ -130,8 +138,7 @@ else{
             }
             ?>
                 ];
-
-
+				
          $("#shieldui-grid1").shieldGrid({
                 dataSource: {
             data: traffic
@@ -141,7 +148,7 @@ else{
                 },
                 rowHover: true,
                 paging: {
-            pageSize: 5
+            pageSize: 8
             },
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
@@ -158,8 +165,6 @@ else{
             });
         });
     </script>
-	
-	
 	
 	
 	
