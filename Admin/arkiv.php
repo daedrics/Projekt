@@ -81,10 +81,10 @@ else{
 					<table class="table">
 					<tbody>
 					<tr>
-					<td>Totale</td>
-					<td>OK</td>
-					<td>Pritje</td>
-					<td>KO</td>
+					<td>Totale <?php echo $i.'('.$i/$i*100 ?>%)</td>
+					<td>OK <?php echo $ok.'('.number_format($ok/$i*100,2)?>%)</td>
+					<td>Pritje <?php echo $pritje.'('.number_format($pritje/$i*100,2) ?>%)</td>
+					<td>KO <?php echo $ko.'('.number_format($ko/$i*100,2) ?>%)</td>
 
 					</tr>
 					</tbody>
@@ -122,7 +122,8 @@ else{
             <?php
 
             for($i=0;$i<sizeof($id_k);$i++){
-                echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'", Status: "'.$status[$i].'"}';
+                echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'",telfisso:"'.$telfisso[$i].'",rcell:"'.$rcell[$i].'",
+				motivacione :"'.$motivacione[$i].'", Status: "'.$status[$i].'"}';
                 if($i!=sizeof($id_k)-1){
                     echo ',';
                 }
@@ -143,10 +144,15 @@ else{
             pageSize: 5
             },
                 columns: [
-                { field: "Id", width: "170px", title: "Id" },
+                { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
                 { field: "Emer", title: "Emer" },
                 { field: "Mbiemer", title: "Mbiemer" },
+				 { field: "codicefiscale", title: "CODICE FISCALE" },
+				  { field: "telfisso", title: "TEL FISSO" },
+			     { field: "rcell", title: "R.CELL" },
+				 { field: "motivacione", title: "MOTIVACIONE" },
+					 
                     { field: "Status", title: "Status" },
                 ]
             });
