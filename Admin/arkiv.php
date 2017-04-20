@@ -66,7 +66,7 @@ else{
                     <li class="divider-vertical"></li>
                     <li>
                         <form class="navbar-search">
-                            <input type="text" placeholder="Search" class="form-control">
+                            <input type="text" placeholder="Cerca" class="form-control">
                         </form>
                     </li>
                 </ul>
@@ -94,21 +94,32 @@ else{
                 </div>
 
 			</div >
-			<div style="margin-left:17px ;padding-top :50px">
-			
-<form action ="excel.php" method="post" Content-Type= "application/xls"  >	
+			<div style="margin-left:17px ;padding-top :50px" class="row">
+				<div class="col-lg-2">
+					<form action ="excel.php" method="post" Content-Type= "application/xls" name="myform" >	
+						<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
+					</form>
+				</div>
+				<div class="col-lg-1"><label style="font-size:18px">Visualizza</label></div>
+				<div class="col-lg-1 ">
+					
+                    <select  class="form-control" onchange="setPage();" id="elementi">
+                        
+                        <option value="10" selected>10</option>
+                        <option value="5">5</option>
 
-	<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
-	
-	<label for="operatori"> Visualissa
-                        <select  id="opsion"class="form-control" name="tipologia" onchange="getSelectedValue();">
-                            <option  value="5" >5</option>
-                            <option selected value="8">8</option>
-                            <option value="4">4</option>
-                        </select> elementi </label>
-	</form>
-</div>
+                    </select>
+					
+				</div>
+				<div class="col-lg-1"><label style="font-size:18px">Elementi</label></div>
+				
+			</div>
 		</div>
+		
+                
+                    
+                </div>
+           
 		<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
@@ -138,6 +149,8 @@ else{
             }
             ?>
                 ];
+			
+				
 				
          $("#shieldui-grid1").shieldGrid({
                 dataSource: {
@@ -147,9 +160,10 @@ else{
             multiple: false
                 },
                 rowHover: true,
-                paging: {
-            pageSize: 8
-            },
+                
+					paging:7
+				
+            ,
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
@@ -164,6 +178,11 @@ else{
                 ]
             });
         });
+		    function setPage() {
+        var x=document.getElementById('elementi').value;
+        $("#shieldui-grid1").swidget().pager.pageSize(x); // Sets the page size to 4
+        $("#shieldui-grid1").refresh();
+    }
     </script>
 	
 	
