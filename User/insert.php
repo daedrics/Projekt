@@ -78,7 +78,7 @@ else{
                 <div class="row">
                     <div class="form-group col-lg-1">
                         <label >Operatori</label>
-                        <input type="text" class="form-control" name="operatori">
+                        <input style="background: #d3d3d3; color: #2e6da4" type="text" class="form-control" name="operatori" value="<?php echo $emer;?>" disabled>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Gestore Telefonico</label>
@@ -180,18 +180,56 @@ else{
                         <label >Offerta Scelta</label>
                         <select  class="form-control" name="offer_scelta">
                             <option value="" disabled selected>Scegli Offerta</option>
-                            <option value="tutto voce">TUTTO VOCE</option>
-                            <option value="isl">ISL</option>
-                            <option value="tse">TSE</option>
-                            <option value="2">ISL</option>
-                            <option value="2">ISL</option>
+                            <option value="TUTTO VOCE">TUTTO VOCE</option>
+                            <option value="ISL">ISL</option>
+                            <option value="TSE">TSE</option>
+                            <option value="TSM">TSM</option>
+                            <option value="TSC">TSC</option>
+                            <option value="TSF">TSF</option>
+                            <option value="TSFC">TSFC</option>
+                            <option value="TSFM">TSFM</option>
+                            <option value="TSF 3x2">TSF 3x2</option>
+                            <option value="RTG">RTG</option>
+                            <option value="RTG TUTTO BUSINESS">RTG TUTTO BUSINESS</option>
+                            <option value="ISDN TUTTO BUSINESS">ISDN TUTTO BUSINESS</option>
+                            <option value="MOB UNLIMITED">MOB UNLIMITED</option>
+                            <option value="MOB EUROPA">MOB EUROPA</option>
                         </select>
                     </div>
+                    <div class="form-group col-lg-2">
+                        <label>Cell Off TSM</label>
+                        <input type="text" class="form-control" name="cel_off_tsm">
+                    </div>
                 </div>
-                <div class="checkbox row">
-                    <label><input type="checkbox"> Remember me</label>
+                <div class="row">
+                    <div class="form-group col-lg-3">
+                        <label>ICCID (TSM)</label>
+                        <input type="text" class="form-control" name="iccid">
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <label>Codice Op</label>
+                        <input type="text" class="form-control" name="cod_op">
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <label>Data</label>
+                        <input type="text" class="form-control" id="data" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <label>Stato</label>
+                        <input type="text" class="form-control" name="stato" value="Waiting" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <label>Motivazione</label>
+                        <input type="text" class="form-control" name="motivazione" value="in Lavorazione" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <label>Note</label>
+                        <textarea class="form-control" style="height: 100px" name="note" ></textarea>
+                    </div>
+                </div>
+                <button type="submit" name="aggiungi" class="btn btn-primary">Aggiungi</button>
 
 
             </form>
@@ -203,7 +241,24 @@ else{
         </div>
 
 
-	
+	<script type="text/javascript">
+
+
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        }
+        if(mm<10){
+            mm='0'+mm;
+        }
+        var today = mm+'/'+dd+'/'+yyyy;
+        document.getElementById('data').value=today;
+    </script>
 	
 	
 	

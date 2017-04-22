@@ -47,8 +47,8 @@ else{
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
                     <li class="selected"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="portfolio.html"><i class="fa fa-level-up"></i> Inserisci</a></li>
-                    <li><a href="blog.html"><i class="fa fa-archive"></i> Archivio</a></li>
+                    <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
+                    <li><a href="#"><i class="fa fa-archive"></i> Archivio</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
