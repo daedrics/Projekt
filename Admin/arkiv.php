@@ -96,8 +96,9 @@ else{
 			</div >
 			<div class="row" >
 			<div class="form-group col-lg-2">
+			<form method="POST">
                         <label>Data inizio</label>
-                        <input type="date" class="form-control" id="d_in">
+                        <input type="date" class="form-control" id="d_in" >
                     </div>
 					<div class="form-group col-lg-2">
                         <label>Data fine</label>
@@ -105,7 +106,7 @@ else{
                     </div>
 					<div style="padding-top:25px" class="form-group col-lg-1 ">
                        
-                        <input type="button" class="form-control btn btn-primary" value="cerca" id="d_button">
+                        <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca"></form>
                     </div>
 			<div class="col-lg-2">
 					<form style="padding-top:25px"action ="excel.php" method="post" Content-Type= "application/xls" name="myform" >	
@@ -153,7 +154,11 @@ else{
     jQuery(function ($) {
         var traffic = [
             <?php
-
+			if(isset($_POST['cerca'])){
+				$dat_f=
+				
+				
+			}
             for($i=0;$i<sizeof($id_k);$i++){
                 echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'",telfisso:"'.$telfisso[$i].'",rcell:"'.$rcell[$i].'",
 				motivacione :"'.$motivacione[$i].'", Status: "'.$status[$i].'"}';
