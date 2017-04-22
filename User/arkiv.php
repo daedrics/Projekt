@@ -64,10 +64,10 @@ else{
                         </ul>
                     </li>
                     <li class="divider-vertical"></li>
-                    <li>
+                    <li><div id="filterbox">
                         <form class="navbar-search">
-                            <input type="text" placeholder="Search" class="form-control">
-                        </form>
+                            <input type="text" placeholder="Cerca" class="form-control">
+                        </form></div>
                     </li>
                 </ul>
             </div>
@@ -154,6 +154,35 @@ else{
                     { field: "Status", title: "Status" },
                 ]
             });
+
+        var dataSource = $("#shieldui-grid1").swidget().dataSource,
+            input = $("#filterbox input"),
+            timeout,
+            value;
+        input.on("keydown", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                value = input.val();
+                if (value) {
+                    dataSource.filter = {
+                        or: [
+                            { path: "Id", filter: "contains", value: value },
+                            { path: "Data", filter: "contains", value: value },
+                            { path: "Emer", filter: "contains", value: value },
+                            { path: "Mbiemer", filter: "contains", value: value },
+                            { path: "Status", filter: "contains", value: value }
+                        ]
+                    };
+                }
+                else {
+                    dataSource.filter = null;
+                }
+                dataSource.read();
+            }, 300);
+        });
+
+
+
         });
     function setPage() {
         var x=document.getElementById('elementi').value;
