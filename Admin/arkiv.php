@@ -7,6 +7,7 @@ if($_SESSION==NULL){
 }
 else{
     $pid = $_SESSION['pid'];
+    include ("db_connect.php");
     include("getdata.php");
 }
 ?>
@@ -98,11 +99,11 @@ else{
 			<div class="form-group col-lg-2">
 			<form method="POST">
                         <label>Data inizio</label>
-                        <input type="date" class="form-control" id="d_in" >
+                        <input type="date" class="form-control" name="d_in" >
                     </div>
 					<div class="form-group col-lg-2">
                         <label>Data fine</label>
-                        <input type="date" class="form-control" id="d_out">
+                        <input type="date" class="form-control" name="d_out">
                     </div>
 					<div style="padding-top:25px" class="form-group col-lg-1 ">
                        
@@ -155,7 +156,19 @@ else{
         var traffic = [
             <?php
 			if(isset($_POST['cerca'])){
-				$dat_f=
+				$dat_f=$_POST['d_in'];
+                $muaj=substr($dat_f,0,2);
+                $dita=substr($dat_f,3,2);
+                $viti=substr($dat_f,6,4);
+                $data_f= $viti."-".$muaj."-".$dita;
+
+				$dat_mb=$_POST['d_out'];
+                $muaj=substr($dat_mb,0,2);
+                $dita=substr($dat_mb,3,2);
+                $viti=substr($dat_mb,6,4);
+                $data_mb= $viti."-".$muaj."-".$dita;
+
+				$query=mysqli_query($link,"SELECT * FROM `kliente` WHERE `data` >= '$data_f' AND `data` <= '$data_mb'");
 				
 				
 			}
