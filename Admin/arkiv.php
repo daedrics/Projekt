@@ -64,10 +64,10 @@ else{
                         </ul>
                     </li>
                     <li class="divider-vertical"></li>
-                    <li>
+                   <li><div id="filterbox">
                         <form class="navbar-search">
                             <input type="text" placeholder="Cerca" class="form-control">
-                        </form>
+                        </form></div>
                     </li>
                 </ul>
             </div>
@@ -94,14 +94,27 @@ else{
                 </div>
 
 			</div >
-			<div style="margin-left:17px ;padding-top :50px" class="row">
-				<div class="col-lg-2">
-					<form action ="excel.php" method="post" Content-Type= "application/xls" name="myform" >	
+			<div class="row" >
+			<div class="form-group col-lg-2">
+                        <label>Data inizio</label>
+                        <input type="date" class="form-control" id="d_in">
+                    </div>
+					<div class="form-group col-lg-2">
+                        <label>Data fine</label>
+                        <input type="date" class="form-control" id="d_out">
+                    </div>
+					<div style="padding-top:25px" class="form-group col-lg-1 ">
+                       
+                        <input type="button" class="form-control btn btn-primary" value="cerca" id="d_button">
+                    </div>
+			<div class="col-lg-2">
+					<form style="padding-top:25px"action ="excel.php" method="post" Content-Type= "application/xls" name="myform" >	
 						<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
 					</form>
 				</div>
-				<div class="col-lg-1"><label style="font-size:18px">Visualizza</label></div>
-				<div class="col-lg-1 ">
+				
+				<div class="col-lg-1"style="padding-top:25px"><label style="font-size:18px">Visualizza</label></div>
+				<div style="padding-top:23px"class="col-lg-1 ">
 					
                     <select  class="form-control" onchange="setPage();" id="elementi">
                         
@@ -111,7 +124,8 @@ else{
                     </select>
 					
 				</div>
-				<div class="col-lg-1"><label style="font-size:18px">Elementi</label></div>
+				<div style="padding-top:25px"class="col-lg-1"><label style="font-size:18px">Elementi</label>
+				</div>
 				
 			</div>
 		</div>
@@ -177,7 +191,43 @@ else{
                     { field: "Status", title: "Status" },
                 ]
             });
+			
+			
+			
+			        var dataSource = $("#shieldui-grid1").swidget().dataSource,
+            input = $("#filterbox input"),
+            timeout,
+            value;
+        input.on("keydown", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                value = input.val();
+                if (value) {
+                    dataSource.filter = {
+                        or: [
+                            { path: "Id", filter: "contains", value: value },
+                            { path: "Data", filter: "contains", value: value },
+                            { path: "Emer", filter: "contains", value: value },
+                            { path: "Mbiemer", filter: "contains", value: value },
+							{ path: "codicefiscale", filter: "contains", value: value },
+                            { path: "telfisso", filter: "contains", value: value },
+                            { path: "rcell", filter: "contains", value: value },
+							{ path: "motivacione", filter: "contains", value: value },
+                            { path: "Status", filter: "contains", value: value }
+                        ]
+                    };
+                }
+                else {
+                    dataSource.filter = null;
+                }
+                dataSource.read();
+            }, 300);
         });
+
+
+
+        });
+		
 		    function setPage() {
         var x=document.getElementById('elementi').value;
         $("#shieldui-grid1").swidget().pager.pageSize(x); // Sets the page size to 4
