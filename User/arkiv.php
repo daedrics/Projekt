@@ -11,6 +11,10 @@ else{
 }
 ?>
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +36,67 @@ else{
     <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
 </head>
+
+<?php
+include ("../db_connect.php");
+$shieldUI=1;
+if(isset($_POST['cerca'])){
+    $shieldUI=2;
+    $dat_f=$_POST['d_in'];
+    $dat_mb=$_POST['d_out'];
+
+    $query=mysqli_query($link,"SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND `data` <= '$dat_mb'");
+
+    $i=0;
+    while ($r=mysqli_fetch_assoc($query)){
+        $id_kl[$i]=$r['id'];
+        $datal[$i]=$r['data'];
+        $k_emerl[$i]=$r['emer'];
+        $k_mbiemerl[$i]=$r['mbiemer'];
+        $statusl[$i]=$r['status'];
+        $i++;
+    }
+
+    echo '<script type="text/javascript">
+                jQuery(function ($) {
+                    var traffic= [';
+
+    for($i=0;$i<sizeof($id_kl);$i++){
+        echo '{ Id: '.$id_kl[$i].', Data: "'.$datal[$i].'", Emer: "'.$k_emerl[$i].'", Mbiemer: "'.$k_mbiemerl[$i].'", Status: "'.$statusl[$i].'"}';
+        if($i!=sizeof($id_kl)-1){
+            echo ',';
+        }
+    }
+    echo "];";
+    echo '
+    $("#shieldui-grid2").shieldGrid({
+                dataSource: {
+            data: traffic
+                },
+                sorting: {
+            multiple: false
+                },
+                rowHover: true,
+                
+					paging:5
+				
+            ,
+                columns: [
+                { field: "Id", width: "60px", title: "Id" },
+                { field: "Data", title: "Data" },
+                { field: "Emer", title: "Emer" },
+                { field: "Mbiemer", title: "Mbiemer" },
+                 { field: "Status", title: "Status" },
+                ]
+            });
+         });
+    
+    </script>';
+}
+
+?>
+
+
 <body style="background:white ">
     <div id="wrapper" >
 	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -93,13 +158,26 @@ else{
 		</div>
             <div style="margin-left:17px ;padding-bottom :30px" class="row">
 
+                <div class="form-group col-lg-2">
+                    <form method="post">
+                        <label>Data inizio</label>
+                        <input type="date" class="form-control" name="d_in" >
+                </div>
+                <div class="form-group col-lg-2">
+                    <label>Data fine</label>
+                    <input type="date" class="form-control" name="d_out">
+                </div>
+                <div style="padding-top:25px" class="form-group col-lg-1 ">
+
+                    <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca"></form>
+                </div>
                 <div class="col-lg-1"><label style="font-size:18px; padding-top: 5px">Visualizza</label></div>
                 <div class="col-lg-1 ">
 
                     <select  class="form-control" onchange="setPage();" id="elementi">
 
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
 
                     </select>
 
@@ -111,7 +189,7 @@ else{
             <div class="col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-body">
-                        <div id="shieldui-grid1"></div>
+                        <div id="shieldui-grid<?php echo $shieldUI;?>"></div>
                     </div>
                 </div>
             </div>
@@ -144,7 +222,7 @@ else{
                 },
                 rowHover: true,
                 paging: {
-            pageSize: 1
+            pageSize: 5
             },
                 columns: [
                 { field: "Id", width: "170px", title: "Id" },
@@ -184,6 +262,8 @@ else{
 
 
         });
+
+
     function setPage() {
         var x=document.getElementById('elementi').value;
         $("#shieldui-grid1").swidget().pager.pageSize(x); // Sets the page size to 4
