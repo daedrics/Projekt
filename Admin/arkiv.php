@@ -88,6 +88,10 @@ if(isset($_POST['cerca'])){
                 { field: "Data", title: "Data" },
                 { field: "Emer", title: "Emer" },
                 { field: "Mbiemer", title: "Mbiemer" },
+                 { field: "codicefiscale", title: "CODICE FISCALE" },
+				  { field: "telfisso", title: "TEL FISSO" },
+			     { field: "rcell", title: "R.CELL" },
+				 { field: "motivacione", title: "MOTIVACIONE" },
                  { field: "Status", title: "Status" },
                 ]
             });
