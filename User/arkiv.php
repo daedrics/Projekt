@@ -145,10 +145,10 @@ if(isset($_POST['cerca'])){
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Totale</td>
-                                <td>OK</td>
-                                <td>Pritje</td>
-                                <td>KO</td>
+                                <td>Totale <?php echo $i.'('.$i/$i*100 ?>%)</td>
+                                <td>OK <?php echo $ok.'('.number_format($ok/$i*100,2)?>%)</td>
+                                <td>Pritje <?php echo $pritje.'('.number_format($pritje/$i*100,2) ?>%)</td>
+                                <td>KO <?php echo $ko.'('.number_format($ko/$i*100,2) ?>%)</td>
                             </tr>
                         </tbody>
 					</table>
@@ -171,8 +171,8 @@ if(isset($_POST['cerca'])){
 
                     <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca"></form>
                 </div>
-                <div class="col-lg-1"><label style="font-size:18px; padding-top: 5px">Visualizza</label></div>
-                <div class="col-lg-1 ">
+                <div class="col-lg-1"style="padding-top:25px"><label style="font-size:18px">Visualizza</label></div>
+                <div style="padding-top:23px"class="col-lg-1 ">
 
                     <select  class="form-control" onchange="setPage();" id="elementi">
 
@@ -182,7 +182,8 @@ if(isset($_POST['cerca'])){
                     </select>
 
                 </div>
-                <div class="col-lg-1"><label style="font-size:18px; padding-top: 5px">Elementi</label></div>
+                <div style="padding-top:25px"class="col-lg-1"><label style="font-size:18px">Elementi</label>
+                </div>
 
             </div>
 		<div class="row">
