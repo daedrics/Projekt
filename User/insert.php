@@ -74,7 +74,7 @@ else{
         </nav>
         <div id="page-wrapper">
             <h3 class="text-muted" style="padding-bottom: 20px">Raccolta Dati (aggiungi contratto)</h3>
-            <form class="text-primary" >
+            <form method="post" class="text-primary" >
                 <div class="row">
                     <div class="form-group col-lg-1">
                         <label >Operatori</label>
@@ -261,6 +261,50 @@ else{
     </script>
 	
 	
+	<?php
+$db_hostname = 'localhost';
+$db_database = 'crm';
+$db_username = 'root';
+$db_password = '';
+
+$link = mysqli_connect($db_hostname,$db_username , $db_password, $db_database);
+if (!$link) {
+    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+
+
+
+
+
+if(isset($_POST['aggiungi'])){
+   
+        $info = array('','','','','','','','','','','');
+        $info[1] = $_POST['data'];
+        $info[2] = $_POST['nome'];
+        $info[3] = $_POST['cognome'];
+        $info[4] = $_POST['cod_fisc'];
+        $info[5] = $_POST['nr_fisso'];
+        $info[6] = $_POST['gestore'];
+        $info[7] = $_POST['motivazione'];     
+		$info[8] = $_POST['stato'];
 	
+	 
+	
+
+	 
+        //shto ne databaze
+       $query = mysql_query("INSERT INTO `kliente` VALUES ('', '$info[1]', '$info[2]', '$info[3]', '$info[4]','$info[5]','$info[6]','$info[7]','$info[8]','1','');", $link);
+	
+	
+        echo '<script language="javascript">';
+        echo 'alert("Klienti u regjistrua. \n")';
+        echo '</script>';
+		echo "<script> location.href='arkiv.php'; </script>";
+    
+}
+?>
 </body>
 </html>
