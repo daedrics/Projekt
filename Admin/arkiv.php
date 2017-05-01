@@ -5,10 +5,15 @@ if($_SESSION==NULL){
     echo '</script>';
     echo "<script> location.href='../Login/index.php'; </script>";
 }
-else{
+if($_SESSION['logged']=='admin'){
     $pid = $_SESSION['pid'];
-    include ("db_connect.php");
     include("getdata.php");
+}
+else{
+    echo '<script language="javascript">';
+    echo 'alert("Questa pagina non e disponibile \n")';
+    echo '</script>';
+    echo "<script> location.href='../Login/index.php'; </script>";
 }
 ?>
 
@@ -51,10 +56,10 @@ if(isset($_POST['cerca'])){
         $k_emerl[$i]=$r['emer'];
         $k_mbiemerl[$i]=$r['mbiemer'];
         $statusl[$i]=$r['status'];
-        $codicefiscalel[$i]=$r['codice fiscale'];
-        $telfissol[$i]=$r['tel fisso'];
-        $rcelll[$i]=$r['r.cell'];
-        $motivacionel[$i]=$r['motivacione'];
+        $codicefiscalel[$i]=$r['codice_fiscale'];
+        $telfissol[$i]=$r['numero_fisso'];
+        $rcelll[$i]=$r['recapito_cell'];
+        $motivacionel[$i]=$r['motivazione'];
         $i++;
     }
 
@@ -86,13 +91,13 @@ if(isset($_POST['cerca'])){
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
-                { field: "Emer", title: "Emer" },
-                { field: "Mbiemer", title: "Mbiemer" },
+                { field: "Emer", title: "Nome" },
+                { field: "Mbiemer", title: "Cognome" },
                  { field: "codicefiscale", title: "CODICE FISCALE" },
 				  { field: "telfisso", title: "TEL FISSO" },
 			     { field: "rcell", title: "R.CELL" },
-				 { field: "motivacione", title: "MOTIVACIONE" },
-                 { field: "Status", title: "Status" },
+				 { field: "motivacione", title: "MOTIVAZIONE" },
+                 { field: "Status", title: "Stato" },
                 ]
             });
          });
@@ -117,7 +122,7 @@ if(isset($_POST['cerca'])){
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
-                    <li ><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                    <li ><a href="home.php"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
                     <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
 
@@ -164,11 +169,11 @@ if(isset($_POST['cerca'])){
 				 </div>
                 </div>
 
-			</div >
+            </div ></div>
 			<div class="row" >
 			<div class="form-group col-lg-2">
-			<form method="post">
-                        <label>Data inizio</label>
+                <form method="post">
+                <label>Data inizio</label>
                         <input type="date" class="form-control" name="d_in" >
                     </div>
 					<div class="form-group col-lg-2">
@@ -177,10 +182,11 @@ if(isset($_POST['cerca'])){
                     </div>
 					<div style="padding-top:25px" class="form-group col-lg-1 ">
                        
-                        <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca"></form>
+                        <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca">
+                        </form>
                     </div>
 			<div class="col-lg-2">
-					<form style="padding-top:25px"action ="excel.php" method="post" Content-Type= "application/xls" name="myform" >	
+                <form style="padding-top:25px" action ="excel.php" method="post" Content-Type= "application/xls" name="myform" >
 						<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
 					</form>
 				</div>
@@ -200,7 +206,7 @@ if(isset($_POST['cerca'])){
 				</div>
 				
 			</div>
-		</div>
+
 		
                 
                     
@@ -225,23 +231,6 @@ if(isset($_POST['cerca'])){
     jQuery(function ($) {
         var traffic = [
             <?php
-			if(isset($_POST['cerca'])){
-				$dat_f=$_POST['d_in'];
-                $muaj=substr($dat_f,0,2);
-                $dita=substr($dat_f,3,2);
-                $viti=substr($dat_f,6,4);
-                $data_f= $viti."-".$muaj."-".$dita;
-
-				$dat_mb=$_POST['d_out'];
-                $muaj=substr($dat_mb,0,2);
-                $dita=substr($dat_mb,3,2);
-                $viti=substr($dat_mb,6,4);
-                $data_mb= $viti."-".$muaj."-".$dita;
-
-				$query=mysqli_query($link,"SELECT * FROM `kliente` WHERE `data` >= '$data_f' AND `data` <= '$data_mb'");
-				
-				
-			}
             for($i=0;$i<sizeof($id_k);$i++){
                 echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'",telfisso:"'.$telfisso[$i].'",rcell:"'.$rcell[$i].'",
 				motivacione :"'.$motivacione[$i].'", Status: "'.$status[$i].'"}';
@@ -269,14 +258,14 @@ if(isset($_POST['cerca'])){
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
-                { field: "Emer", title: "Emer" },
-                { field: "Mbiemer", title: "Mbiemer" },
+                { field: "Emer", title: "Nome" },
+                { field: "Mbiemer", title: "Cognome" },
 				 { field: "codicefiscale", title: "CODICE FISCALE" },
 				  { field: "telfisso", title: "TEL FISSO" },
 			     { field: "rcell", title: "R.CELL" },
-				 { field: "motivacione", title: "MOTIVACIONE" },
+				 { field: "motivacione", title: "MOTIVAZIONE" },
 					 
-                    { field: "Status", title: "Status" },
+                    { field: "Status", title: "STATO" },
                 ]
             });
 			
@@ -318,7 +307,7 @@ if(isset($_POST['cerca'])){
 		
 		    function setPage() {
         var x=document.getElementById('elementi').value;
-        $("#shieldui-grid1").swidget().pager.pageSize(x); // Sets the page size to 4
+        $("#shieldui-grid1").swidget().pager.pageSize(x);
         $("#shieldui-grid1").refresh();
              }
     </script>

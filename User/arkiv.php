@@ -5,9 +5,15 @@ if($_SESSION==NULL){
     echo '</script>';
     echo "<script> location.href='../Login/index.php'; </script>";
 }
-else{
+if($_SESSION['logged']=='user'){
     $pid = $_SESSION['pid'];
     include("getdata.php");
+}
+else{
+    echo '<script language="javascript">';
+    echo 'alert("Questa pagina non e disponibile \n")';
+    echo '</script>';
+    echo "<script> location.href='../Login/index.php'; </script>";
 }
 ?>
 
@@ -54,6 +60,10 @@ if(isset($_POST['cerca'])){
         $k_emerl[$i]=$r['emer'];
         $k_mbiemerl[$i]=$r['mbiemer'];
         $statusl[$i]=$r['status'];
+        $codicefiscalel[$i]=$r['codice_fiscale'];
+        $telfissol[$i]=$r['numero_fisso'];
+        $rcelll[$i]=$r['recapito_cell'];
+        $motivacionel[$i]=$r['motivazione'];
         $i++;
     }
 
@@ -62,8 +72,9 @@ if(isset($_POST['cerca'])){
                     var traffic= [';
 
     for($i=0;$i<sizeof($id_kl);$i++){
-        echo '{ Id: '.$id_kl[$i].', Data: "'.$datal[$i].'", Emer: "'.$k_emerl[$i].'", Mbiemer: "'.$k_mbiemerl[$i].'", Status: "'.$statusl[$i].'"}';
-        if($i!=sizeof($id_kl)-1){
+        echo '{ Id: '.$id_kl[$i].', Data: "'.$datal[$i].'", Emer: "'.$k_emerl[$i].'", Mbiemer: "'.$k_mbiemerl[$i].'",codicefiscale : "'.$codicefiscalel[$i].'",telfisso:"'.$telfissol[$i].'",rcell:"'.$rcelll[$i].'",
+				motivacione :"'.$motivacionel[$i].'", Status: "'.$statusl[$i].'"}';
+        if($i!=sizeof($id_k)-1){
             echo ',';
         }
     }
@@ -84,9 +95,13 @@ if(isset($_POST['cerca'])){
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
-                { field: "Emer", title: "Emer" },
-                { field: "Mbiemer", title: "Mbiemer" },
-                 { field: "Status", title: "Status" },
+                { field: "Emer", title: "Nome" },
+                { field: "Mbiemer", title: "Cognome" },
+                 { field: "codicefiscale", title: "CODICE FISCALE" },
+				  { field: "telfisso", title: "TEL FISSO" },
+			     { field: "rcell", title: "R.CELL" },
+				 { field: "motivacione", title: "MOTIVAZIONE" },
+                 { field: "Status", title: "Stato" },
                 ]
             });
          });
@@ -205,9 +220,9 @@ if(isset($_POST['cerca'])){
     jQuery(function ($) {
         var traffic = [
             <?php
-
             for($i=0;$i<sizeof($id_k);$i++){
-                echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'", Status: "'.$status[$i].'"}';
+                echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'",telfisso:"'.$telfisso[$i].'",rcell:"'.$rcell[$i].'",
+				motivacione :"'.$motivacione[$i].'", Status: "'.$status[$i].'"}';
                 if($i!=sizeof($id_k)-1){
                     echo ',';
                 }
@@ -228,9 +243,13 @@ if(isset($_POST['cerca'])){
                 columns: [
                 { field: "Id", width: "170px", title: "Id" },
                 { field: "Data", title: "Data" },
-                { field: "Emer", title: "Emer" },
-                { field: "Mbiemer", title: "Mbiemer" },
-                    { field: "Status", title: "Status" },
+                { field: "Emer", title: "Nome" },
+                { field: "Mbiemer", title: "Cognome" },
+                    { field: "codicefiscale", title: "CODICE FISCALE" },
+                    { field: "telfisso", title: "TEL FISSO" },
+                    { field: "rcell", title: "R.CELL" },
+                    { field: "motivacione", title: "MOTIVAZIONE" },
+                    { field: "Status", title: "Stato" },
                 ]
             });
 
@@ -249,6 +268,10 @@ if(isset($_POST['cerca'])){
                             { path: "Data", filter: "contains", value: value },
                             { path: "Emer", filter: "contains", value: value },
                             { path: "Mbiemer", filter: "contains", value: value },
+                            { path: "codicefiscale", filter: "contains", value: value },
+                            { path: "telfisso", filter: "contains", value: value },
+                            { path: "rcell", filter: "contains", value: value },
+                            { path: "motivacione", filter: "contains", value: value },
                             { path: "Status", filter: "contains", value: value }
                         ]
                     };

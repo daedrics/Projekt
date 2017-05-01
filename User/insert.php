@@ -5,9 +5,15 @@ if($_SESSION==NULL){
     echo '</script>';
     echo "<script> location.href='../Login/index.php'; </script>";
 }
-else{
+if($_SESSION['logged']=='user'){
     $pid = $_SESSION['pid'];
     include("getdata.php");
+}
+else{
+    echo '<script language="javascript">';
+    echo 'alert("Questa pagina non e disponibile \n")';
+    echo '</script>';
+    echo "<script> location.href='../Login/index.php'; </script>";
 }
 ?>
 
@@ -88,16 +94,16 @@ else{
                         <label for="operatori">Tipologia CNT</label>
                         <select  class="form-control" name="tipologia">
                             <option value="" disabled selected>Scegli Tipologia Contratto</option>
-                            <option value="1">NIP</option>
-                            <option value="2">ULL</option>
+                            <option value="NIP">NIP</option>
+                            <option value="ULL">ULL</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-2">
                         <label for="operatori">APP/CNT</label>
                         <select  class="form-control" name="app">
                             <option value="" disabled selected>Scegli APP/CNT Contratto</option>
-                            <option value="1">APP</option>
-                            <option value="2">CNT</option>
+                            <option value="APP">APP</option>
+                            <option value="CNT">CNT</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-2">
@@ -113,6 +119,10 @@ else{
                     <div class="form-group col-lg-2">
                         <label>Provincia</label>
                         <input type="text" class="form-control" name="provincia">
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <label>Frazione</label>
+                        <input type="text" class="form-control" name="frazione">
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Cap</label>
@@ -152,11 +162,11 @@ else{
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Data di Rilascio</label>
-                        <input type="text" class="form-control" name="data_rilasc">
+                        <input type="date" class="form-control" name="data_rilasc">
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Data di Scadenza</label>
-                        <input type="text" class="form-control" name="data_scad">
+                        <input type="date" class="form-control" name="data_scad">
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Codice Fiscale</label>
@@ -212,15 +222,15 @@ else{
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Data</label>
-                        <input type="text" class="form-control" id="data" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                        <input type="text" class="form-control" name="data" id="data" style="color: #2e6da4;background: #d3d3d3;" disabled>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Stato</label>
-                        <input type="text" class="form-control" name="stato" value="Waiting" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                        <input type="text" class="form-control" name="stato" value="Waiting" style="color: #2e6da4;background: #d3d3d3;" readonly>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Motivazione</label>
-                        <input type="text" class="form-control" name="motivazione" value="in Lavorazione" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                        <input type="text" class="form-control" name="motivazione" value="in Lavorazione" style="color: #2e6da4;background: #d3d3d3;" readonly>
                     </div>
                 </div>
                 <div class="row">
@@ -256,24 +266,13 @@ else{
         if(mm<10){
             mm='0'+mm;
         }
-        var today = mm+'/'+dd+'/'+yyyy;
+        var today = yyyy+'-'+mm+'-'+dd;
         document.getElementById('data').value=today;
     </script>
 	
 	
 	<?php
-$db_hostname = 'localhost';
-$db_database = 'crm';
-$db_username = 'root';
-$db_password = '';
-
-$link = mysqli_connect($db_hostname,$db_username , $db_password, $db_database);
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
+include ("../db_connect.php");
 
 
 
@@ -281,26 +280,50 @@ if (!$link) {
 
 if(isset($_POST['aggiungi'])){
    
-        $info = array('','','','','','','','','','','');
-        $info[1] = $_POST['data'];
-        $info[2] = $_POST['nome'];
-        $info[3] = $_POST['cognome'];
-        $info[4] = $_POST['cod_fisc'];
-        $info[5] = $_POST['nr_fisso'];
-        $info[6] = $_POST['gestore'];
-        $info[7] = $_POST['motivazione'];     
-		$info[8] = $_POST['stato'];
-	
-	 
-	
+        $info = array('','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
+        $info[1] = $_POST['gestore'];
+        $info[2] = $_POST['tipologia'];
+        $info[3] = $_POST['app'];
+        $info[4] = $_POST['nr_fisso'];
+        $info[5] = $_POST['comune'];
+        $info[6] = $_POST['provincia'];
+        $info[7] = $_POST['frazione'];
+		$info[8] = $_POST['cap'];
+        $info[9] = $_POST['via'];
+        $info[10] = $_POST['nr_civico'];
+        $info[11] = $_POST['nome'];
+        $info[12] = $_POST['cognome'];
+        $info[13] = $_POST['luogo_nasc'];
+        $info[14] = $_POST['n_doc'];
+        $info[15] = $_POST['comune_emes'];
+        $info[16] = $_POST['data_rilasc'];
+        $info[17] = $_POST['data_scad'];
+        $info[18] = $_POST['cod_fisc'];
+        $info[19] = $_POST['cod_migr'];
+        $info[20] = $_POST['rec_cell'];
+        $info[21] = $_POST['op_cell'];
+        $info[22] = $_POST['offer_scelta'];
+        $info[23] = $_POST['cel_off_tsm'];
+        $info[24] = $_POST['iccid'];
+        $info[25] = $_POST['cod_op'];
+        $info[26] = $_POST['stato'];
+        $info[27] = $_POST['motivazione'];
+        $info[28] = $_POST['note'];
+        $today = date("Y-m-d ");
 
-	 
+
         //shto ne databaze
-       $query = mysql_query("INSERT INTO `kliente` VALUES ('', '$info[1]', '$info[2]', '$info[3]', '$info[4]','$info[5]','$info[6]','$info[7]','$info[8]','1','');", $link);
+    $query = mysqli_query($link,"
+INSERT INTO `kliente` (`id`, `data`, `emer`, `mbiemer`, `status`, `#id_Operator`, `gestore_tel`, `tipologia_cnt`, `app_cnt`, `numero_fisso`, `comune`, `provincia`, `cap`,
+ `via`, `nr_civico`, `luogo_di_nascita`, `nr_documento`, `comune_emmissione`, `data_rilascio`, `data_scadenza`, `codice_fiscale`, `codice_migrazione`, 
+ `recapito_cell`, `operatore_cell`, `offerta_scelta`, `cell_off_tsm`, `iccid`, `codice_op`, `motivazione`, `note`, `id_admin`, `frazione`)
+  VALUES (NULL, '$today', '$info[11]', '$info[12]', '$info[26]', '$pid', '$info[1]', '$info[2]', '$info[3]', '$info[4]', '$info[5]', '$info[6]', '$info[8]', 
+  '$info[9]', '$info[10]', '$info[13]', '$info[14]', '$info[15]', '$info[16]', '$info[17]', '$info[18]', '$info[19]', '$info[20]', '$info[21]', '$info[22]', '$info[23]', 
+  '$info[24]', '$info[25]', '$info[27]', '$info[28]', '', '$info[7]');");
 	
 	
         echo '<script language="javascript">';
-        echo 'alert("Klienti u regjistrua. \n")';
+        echo 'alert("Il contratto e stato aggiunto \n")';
         echo '</script>';
 		echo "<script> location.href='arkiv.php'; </script>";
     
