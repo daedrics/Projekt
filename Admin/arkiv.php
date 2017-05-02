@@ -1,3 +1,4 @@
+
 <?php session_start();
 if($_SESSION==NULL){
     echo '<script language="javascript">';
@@ -33,7 +34,7 @@ else{
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
 
-    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/dark-bootstrap/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/dark-bootstrap-gradient/all.min.css" />
 
     <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
@@ -41,41 +42,45 @@ else{
 
 <?php
 include ("../db_connect.php");
+
 $shieldUI=1;
-if(isset($_POST['cerca'])){
-    $shieldUI=2;
-    $dat_f=$_POST['d_in'];
-    $dat_mb=$_POST['d_out'];
+if(isset($_POST['cerca'])) {
+    $shieldUI = 2;
+    $dat_f = $_POST['d_in'];
+    $dat_mb = $_POST['d_out'];
 
-    $query=mysqli_query($link,"SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND `data` <= '$dat_mb'");
+    $query = mysqli_query($link, "SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND `data` <= '$dat_mb'");
 
-    $i=0;
-    while ($r=mysqli_fetch_assoc($query)){
-        $id_kl[$i]=$r['id'];
-        $datal[$i]=$r['data'];
-        $k_emerl[$i]=$r['emer'];
-        $k_mbiemerl[$i]=$r['mbiemer'];
-        $statusl[$i]=$r['status'];
-        $codicefiscalel[$i]=$r['codice_fiscale'];
-        $telfissol[$i]=$r['numero_fisso'];
-        $rcelll[$i]=$r['recapito_cell'];
-        $motivacionel[$i]=$r['motivazione'];
+    $i = 0;
+    while ($r = mysqli_fetch_assoc($query)) {
+        $id_kl[$i] = $r['id'];
+        $datal[$i] = $r['data'];
+        $k_emerl[$i] = $r['emer'];
+        $k_mbiemerl[$i] = $r['mbiemer'];
+        $statusl[$i] = $r['status'];
+        $codicefiscalel[$i] = $r['codice_fiscale'];
+        $telfissol[$i] = $r['numero_fisso'];
+        $rcelll[$i] = $r['recapito_cell'];
+        $motivacionel[$i] = $r['motivazione'];
         $i++;
     }
 
-    echo '<script type="text/javascript">
+
+}
+
+echo '<script type="text/javascript">
                 jQuery(function ($) {
                     var traffic= [';
 
-    for($i=0;$i<sizeof($id_kl);$i++){
-        echo '{ Id: '.$id_kl[$i].', Data: "'.$datal[$i].'", Emer: "'.$k_emerl[$i].'", Mbiemer: "'.$k_mbiemerl[$i].'",codicefiscale : "'.$codicefiscalel[$i].'",telfisso:"'.$telfissol[$i].'",rcell:"'.$rcelll[$i].'",
+for($i=0;$i<sizeof($id_kl);$i++){
+    echo '{ Id: '.$id_kl[$i].', Data: "'.$datal[$i].'", Emer: "'.$k_emerl[$i].'", Mbiemer: "'.$k_mbiemerl[$i].'",codicefiscale : "'.$codicefiscalel[$i].'",telfisso:"'.$telfissol[$i].'",rcell:"'.$rcelll[$i].'",
 				motivacione :"'.$motivacionel[$i].'", Status: "'.$statusl[$i].'"}';
-        if($i!=sizeof($id_k)-1){
-            echo ',';
-        }
+    if($i!=sizeof($id_k)-1){
+        echo ',';
     }
-    echo "];";
-    echo '
+}
+echo "];";
+echo '
     $("#shieldui-grid2").shieldGrid({
                 dataSource: {
             data: traffic
@@ -103,7 +108,7 @@ if(isset($_POST['cerca'])){
          });
     
     </script>';
-}
+
 
 ?>
 
@@ -157,10 +162,10 @@ if(isset($_POST['cerca'])){
 					<table class="table">
 					<tbody>
 					<tr>
-					<td>Totale <?php echo $i.'('.$i/$i*100 ?>%)</td>
-					<td>OK <?php echo $ok.'('.number_format($ok/$i*100,2)?>%)</td>
-					<td>Pritje <?php echo $pritje.'('.number_format($pritje/$i*100,2) ?>%)</td>
-					<td>KO <?php echo $ko.'('.number_format($ko/$i*100,2) ?>%)</td>
+					<td>Totale <?php echo $tot.'('.$tot/$tot*100 ?>%)</td>
+					<td>OK <?php echo $ok.'('.number_format($ok/$tot*100,2)?>%)</td>
+					<td>Pritje <?php echo $pritje.'('.number_format($pritje/$tot*100,2) ?>%)</td>
+					<td>KO <?php echo $ko.'('.number_format($ko/$tot*100,2) ?>%)</td>
 
 					</tr>
 					</tbody>
@@ -170,29 +175,36 @@ if(isset($_POST['cerca'])){
                 </div>
 
             </div ></div>
-			<div class="row" >
-			<div class="form-group col-lg-2">
-                <form method="post">
-                <label>Data inizio</label>
-                        <input type="date" class="form-control" name="d_in" >
+
+                <div class="row" >
+                   <form method="post" >
+                <div class="form-group col-lg-2">
+
+                    <label>Data inizio</label>
+                            <input type="date" class="form-control" name="d_in" >
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label>Data fine</label>
+                            <input type="date" class="form-control" name="d_out">
+                        </div>
+                        <div style="padding-top:25px" class="form-group col-lg-1 ">
+
+                            <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca">
+
+                        </div>
+
+                   </form>
+                    <form style="padding-top:25px"  action="excel.php" method="post" Content-Type= "application/xls" name="myform">
+                <div class="col-lg-2">
+
+                            <input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
+
                     </div>
-					<div class="form-group col-lg-2">
-                        <label>Data fine</label>
-                        <input type="date" class="form-control" name="d_out">
-                    </div>
-					<div style="padding-top:25px" class="form-group col-lg-1 ">
-                       
-                        <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca">
-                        </form>
-                    </div>
-			<div class="col-lg-2">
-                <form style="padding-top:25px" action ="excel.php" method="post" Content-Type= "application/xls" name="myform" >
-						<input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
-					</form>
-				</div>
+                    </form>
+
 				
-				<div class="col-lg-1"style="padding-top:25px"><label style="font-size:18px">Visualizza</label></div>
-				<div style="padding-top:23px"class="col-lg-1 ">
+				<div class="col-lg-1" ><label style="font-size:18px">Visualizza</label></div>
+				<div class="col-lg-1 ">
 					
                     <select  class="form-control" onchange="setPage();" id="elementi">
                         
@@ -202,7 +214,7 @@ if(isset($_POST['cerca'])){
                     </select>
 					
 				</div>
-				<div style="padding-top:25px"class="col-lg-1"><label style="font-size:18px">Elementi</label>
+				<div class="col-lg-1"><label style="font-size:18px">Elementi</label>
 				</div>
 				
 			</div>
@@ -221,10 +233,11 @@ if(isset($_POST['cerca'])){
                         </div>
                     </div>
                 </div>
+
         </div>
 
         </div>
-    </div>
+
 
 	
 	<script  type="text/javascript">
@@ -266,6 +279,25 @@ if(isset($_POST['cerca'])){
 				 { field: "motivacione", title: "MOTIVAZIONE" },
 					 
                     { field: "Status", title: "STATO" },
+                    {
+                        width: "110px",
+                        title: "Modifica",
+                        columnTemplate: function (cell, item) {
+                            var transport = item["Id"];
+                            $('<button ><img src="edit.png" style="width: 40px; height: 25px;"/></button>')
+                                .appendTo(cell)
+                                .shieldButton({
+                                    events: {
+                                        click: function () {
+                                            location.href='modifica.php?id='+transport+'';
+                                        }
+                                    }
+                                });
+                        }
+                    }
+
+
+
                 ]
             });
 			
