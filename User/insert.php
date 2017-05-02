@@ -30,7 +30,7 @@ else{
 
     <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-
+   <script type="text/javascript" src="indexjs.js"></script>
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
 
     <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/dark-bootstrap/all.min.css" />
@@ -88,11 +88,11 @@ else{
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Gestore Telefonico</label>
-                        <input type="text" class="form-control" name="gestore">
+                        <input type="text" class="form-control" name="gestore"onfocusout="korniza(plotesuar('gestore'), 'gestore')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label for="operatori">Tipologia CNT</label>
-                        <select  class="form-control" name="tipologia">
+                        <select  class="form-control" name="tipologia"onfocusout="korniza(plotesuar('tipologia'), 'tipologia')" required>
                             <option value="" disabled selected>Scegli Tipologia Contratto</option>
                             <option value="NIP">NIP</option>
                             <option value="ULL">ULL</option>
@@ -100,7 +100,7 @@ else{
                     </div>
                     <div class="form-group col-lg-2">
                         <label for="operatori">APP/CNT</label>
-                        <select  class="form-control" name="app">
+                        <select  class="form-control" name="app"onfocusout="korniza(plotesuar('app'), 'app')" required>
                             <option value="" disabled selected>Scegli APP/CNT Contratto</option>
                             <option value="APP">APP</option>
                             <option value="CNT">CNT</option>
@@ -108,87 +108,87 @@ else{
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Numero Fisso</label>
-                        <input type="text" class="form-control" name="nr_fisso">
+                        <input type="text" class="form-control" name="nr_fisso"onfocusout="korniza(plotesuar('nr_fisso'), 'nr_fisso')" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-2">
                         <label>Comune</label>
-                        <input type="text" class="form-control" name="comune">
+                        <input type="text" class="form-control" name="comune"onfocusout="korniza(plotesuar('comune'), 'comune')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Provincia</label>
-                        <input type="text" class="form-control" name="provincia">
+                        <input type="text" class="form-control" name="provincia"onfocusout="korniza(plotesuar('provincia'), 'provincia')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Frazione</label>
-                        <input type="text" class="form-control" name="frazione">
+                        <input type="text" class="form-control" name="frazione"onfocusout="korniza(plotesuar('frazione'), 'frazione')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Cap</label>
-                        <input type="text" class="form-control" name="cap">
+                        <input type="text" class="form-control" name="cap"onfocusout="korniza(plotesuar('cap'), 'cap')" required>
                     </div>
                     <div class="form-group col-lg-3">
                         <label>Via</label>
-                        <input type="text" class="form-control" name="via">
+                        <input type="text" class="form-control" name="via"onfocusout="korniza(plotesuar('via'), 'via')" required>
                     </div>
                     <div class="form-group col-lg-1">
                         <label>Nr Civico</label>
-                        <input type="text" class="form-control" name="nr_civico">
+                        <input type="text" class="form-control" name="nr_civico"onfocusout="korniza(plotesuar('nr_civico'), 'nr_civico')" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-3">
                         <label>Nome</label>
-                        <input type="text" class="form-control" name="nome">
+                        <input type="text" class="form-control" name="nome"onfocusout="korniza(plotesuar('nome'), 'nome')" required>
                     </div>
                     <div class="form-group col-lg-3">
                         <label>Cognome</label>
-                        <input type="text" class="form-control" name="cognome">
+                        <input type="text" class="form-control" name="cognome"onfocusout="korniza(plotesuar('cognome'), 'cognome')" required>
                     </div>
                     <div class="form-group col-lg-4">
                         <label>Luogo di nascita</label>
-                        <input type="text" class="form-control" name="luogo_nasc">
+                        <input type="text" class="form-control" name="luogo_nasc"onfocusout="korniza(plotesuar('luogo_nasc'), 'luogo_nasc')" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-2">
                         <label>N. Documento</label>
-                        <input type="text" class="form-control" name="n_doc">
+                        <input type="text" class="form-control" name="n_doc"onfocusout="korniza(plotesuar('n_doc'), 'n_doc')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Comune di Emessione</label>
-                        <input type="text" class="form-control" name="comune_emes">
+                        <input type="text" class="form-control" name="comune_emes"onfocusout="korniza(plotesuar('comune_emes'), 'comune_emes')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Data di Rilascio</label>
-                        <input type="date" class="form-control" name="data_rilasc">
+                        <input type="date" class="form-control" name="data_rilasc"onfocusout="korniza(plotesuar('data_rilasc'), 'data_rilasc')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Data di Scadenza</label>
-                        <input type="date" class="form-control" name="data_scad">
+                        <input type="date" class="form-control" name="data_scad"onfocusout="korniza(plotesuar('data_scad'), 'data_scad')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Codice Fiscale</label>
-                        <input type="text" class="form-control" name="cod_fisc">
+                        <input type="text" class="form-control" name="cod_fisc"onfocusout="korniza(plotesuar('cod_fisc'), 'cod_fisc')" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <label>Codice di Migrazione</label>
-                        <input type="text" class="form-control" name="cod_migr">
+                        <input type="text" class="form-control" name="cod_migr"onfocusout="korniza(plotesuar('cod_migr'), 'cod_migr')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Recapito di Cell</label>
-                        <input type="text" class="form-control" name="rec_cell">
+                        <input type="text" class="form-control" name="rec_cell"onfocusout="korniza(plotesuar('rec_cell'), 'rec_cell')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Operatore Cell</label>
-                        <input type="text" class="form-control" name="op_cell">
+                        <input type="text" class="form-control" name="op_cell"onfocusout="korniza(plotesuar('op_cell'), 'op_cell')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label >Offerta Scelta</label>
-                        <select  class="form-control" name="offer_scelta">
+                        <select  class="form-control" name="offer_scelta"onfocusout="korniza(plotesuar('offer_scelta'), 'offer_scelta')" required>
                             <option value="" disabled selected>Scegli Offerta</option>
                             <option value="TUTTO VOCE">TUTTO VOCE</option>
                             <option value="ISL">ISL</option>
@@ -208,17 +208,17 @@ else{
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Cell Off TSM</label>
-                        <input type="text" class="form-control" name="cel_off_tsm">
+                        <input type="text" class="form-control" name="cel_off_tsm"onfocusout="korniza(plotesuar('cel_off_tsm'), 'cel_off_tsm')" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-3">
                         <label>ICCID (TSM)</label>
-                        <input type="text" class="form-control" name="iccid">
+                        <input type="text" class="form-control" name="iccid"onfocusout="korniza(plotesuar('iccid'), 'iccid')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Codice Op</label>
-                        <input type="text" class="form-control" name="cod_op">
+                        <input type="text" class="form-control" name="cod_op"onfocusout="korniza(plotesuar('cod_op'), 'cod_op')" required>
                     </div>
                     <div class="form-group col-lg-2">
                         <label>Data</label>
