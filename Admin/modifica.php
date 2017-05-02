@@ -18,6 +18,53 @@ else{
 }
 ?>
 
+<?php
+include ("../db_connect.php");
+$kontrata_data=mysqli_query($link,"SELECT * FROM `kliente` WHERE `id`='$id_kontrata'");
+
+$row=mysqli_fetch_assoc($kontrata_data);
+$info1 = array('','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
+$info1[1] =  $row["id"];
+$info1[2] = $row["emer"];
+$info1[3] = $row["mbiemer"];
+$info1[4] = $row["data"];
+$info1[5] = $row["status"];
+$info1[6] = $row["gestore_tel"];
+$info1[7] = $row["tipologia_cnt"];
+$info1[8] = $row["app_cnt"];
+$info1[9] = $row["numero_fisso"];
+$info1[10] = $row["comune"];
+$info1[11] = $row["provincia"];
+$info1[12] = $row["frazione"];
+$info1[13] = $row["cap"];
+$info1[14] = $row["via"];
+$info1[15] = $row["nr_civico"];
+$info1[16] = $row["luogo_di_nascita"];
+$info1[17] = $row["nr_documento"];
+$info1[18] = $row["comune_emmissione"];
+$info1[19] = $row["data_rilascio"];
+$info1[20] = $row["data_scadenza"];
+$info1[21] = $row["codice_fiscale"];
+$info1[22] = $row["codice_migrazione"];
+$info1[23] = $row["recapito_cell"];
+$info1[24] = $row["operatore_cell"];
+$info1[25] = $row["offerta_scelta"];
+$info1[26] = $row["cell_off_tsm"];
+$info1[27] = $row["iccid"];
+$info1[28] = $row["codice_op"];
+$info1[29]= $row["motivazione"];
+$info1[30]=$row["note"];
+$info1[31]=$row["#id_Operator"];
+$emri_op=mysqli_query($link,"SELECT emer FROM `operator` WHERE id='$info1[31]'");
+$rresht=mysqli_fetch_assoc($emri_op);
+$emri_oper=$rresht["emer"];
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,16 +129,16 @@ else{
 
 
     <div id="page-wrapper">
-        <h3 class="text-muted" style="padding-bottom: 20px">Raccolta Dati (aggiungi contratto)</h3>
+        <h3 class="text-muted" style="padding-bottom: 20px">Raccolta Dati (modifica contratto)</h3>
         <form method="post" class="text-primary" >
             <div class="row">
                 <div class="form-group col-lg-1">
                     <label >Operatori</label>
-                    <input style="background: #d3d3d3; color: #2e6da4" type="text" class="form-control" name="operatori" value="<?php echo $emer;?>" disabled>
+                    <input style="background: #d3d3d3; color: #2e6da4" type="text" class="form-control" name="operatori" value="<?php echo $emri_oper;?>" disabled>
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Gestore Telefonico</label>
-                    <input type="text" class="form-control" name="gestore" value="koot">
+                    <input type="text" class="form-control" name="gestore" >
                 </div>
                 <div class="form-group col-lg-2">
                     <label for="operatori">Tipologia CNT</label>
@@ -139,7 +186,7 @@ else{
             <div class="row">
                 <div class="form-group col-lg-3">
                     <label>Nome</label>
-                    <input type="text" class="form-control" name="nome">
+                    <input type="text" class="form-control" name="nome" value="<?php echo $info1[2];?>" >
                 </div>
                 <div class="form-group col-lg-3">
                     <label>Cognome</label>
@@ -238,7 +285,7 @@ else{
                     <textarea class="form-control" style="height: 100px" name="note" ></textarea>
                 </div>
             </div>
-            <button type="submit" name="aggiungi" class="btn btn-primary">Aggiungi</button>
+            <button type="submit" name="aggiungi" class="btn btn-primary">Modifica Contratto</button>
 
 
         </form>
