@@ -66,7 +66,7 @@ if(isset($_POST["export_excel"]))
 			<td> ' . $row["cap"] . '</td>
 			<td> ' . $row["via"] . '</td>
 			<td> ' . $row["nr_civico"] . '</td>
-			<td> ' . $row["luogo_di_nastica"] . '</td>
+			<td> ' . $row["luogo_di_nascita"] . '</td>
 			<td> ' . $row["nr_documento"] . '</td>
 			<td> ' . $row["comune_emmissione"] . '</td>
 			<td> ' . $row["data_rilascio"] . '</td>
@@ -79,7 +79,7 @@ if(isset($_POST["export_excel"]))
 			<td> ' . $row["cell_off_tsm"] . '</td>
 			<td> ' . $row["iccid"] . '</td>
 			<td> ' . $row["codice_op"] . '</td>
-			<td> ' . $row["motivacione"] . '</td>
+			<td> ' . $row["motivazione"] . '</td>
 			<td> ' . $row["note"] . '</td>
 			<td> ' . $row["#id_Operator"] . '</td>
 			
