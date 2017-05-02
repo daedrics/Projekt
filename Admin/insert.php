@@ -30,6 +30,7 @@ else{
 
     <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+	   <script type="text/javascript" src="indexjs.js"></script>
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
 
@@ -138,7 +139,7 @@ else{
                 <div class="row">
                     <div class="form-group col-lg-3">
                         <label>Nome</label>
-                        <input type="text" class="form-control" name="nome">
+                        <input type="text" class="form-control" name="nome"onfocusout="korniza(plotesuar('nome'), 'nome')" required>
                     </div>
                     <div class="form-group col-lg-3">
                         <label>Cognome</label>
