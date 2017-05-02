@@ -126,7 +126,6 @@ if(isset($_POST['cerca'])){
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
-                    <li class="selected"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
                     <li><a href="#"><i class="fa fa-archive"></i> Archivio</a></li>
 
@@ -136,8 +135,8 @@ if(isset($_POST['cerca'])){
                     <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Cambia Password</a></li>
+                          
                             <li class="divider"></li>
                             <li><a href="../logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
 
