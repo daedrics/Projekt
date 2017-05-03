@@ -138,49 +138,55 @@ $emri_oper=$rresht["emer"];
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Gestore Telefonico</label>
-                    <input type="text" class="form-control" name="gestore" >
+                    <input type="text" class="form-control" name="gestore" value="<?php echo $info1[6];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label for="operatori">Tipologia CNT</label>
                     <select  class="form-control" name="tipologia">
-                        <option value="" disabled selected>Scegli Tipologia Contratto</option>
-                        <option value="1">NIP</option>
-                        <option value="2">ULL</option>
+                        <option value="<?php echo $info1[7];?>" selected><?php echo $info1[7];?></option>
+                        <option value="" disabled >Scegli Tipologia Contratto</option>
+                        <option value="NIP">NIP</option>
+                        <option value="ULL">ULL</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-2">
                     <label for="operatori">APP/CNT</label>
                     <select  class="form-control" name="app">
-                        <option value="" disabled selected>Scegli APP/CNT Contratto</option>
-                        <option value="1">APP</option>
-                        <option value="2">CNT</option>
+                        <option value="<?php echo $info1[8];?>" selected><?php echo $info1[8];?></option>
+                        <option value="" disabled >Scegli APP/CNT Contratto</option>
+                        <option value="APP">APP</option>
+                        <option value="CNT">CNT</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Numero Fisso</label>
-                    <input type="text" class="form-control" name="nr_fisso">
+                    <input type="text" class="form-control" value="<?php echo $info1[9];?>" name="nr_fisso">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-2">
                     <label>Comune</label>
-                    <input type="text" class="form-control" name="comune">
+                    <input type="text" class="form-control" name="comune" value="<?php echo $info1[10];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Provincia</label>
-                    <input type="text" class="form-control" name="provincia">
+                    <input type="text" class="form-control" name="provincia" value="<?php echo $info1[11];?>">
+                </div>
+                <div class="form-group col-lg-2">
+                    <label>Frazione</label>
+                    <input type="text" class="form-control" name="frazione" value="<?php echo $info1[12];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Cap</label>
-                    <input type="text" class="form-control" name="cap">
+                    <input type="text" class="form-control" name="cap" value="<?php echo $info1[13];?>">
                 </div>
                 <div class="form-group col-lg-3">
                     <label>Via</label>
-                    <input type="text" class="form-control" name="via">
+                    <input type="text" class="form-control" name="via" value="<?php echo $info1[14];?>">
                 </div>
                 <div class="form-group col-lg-1">
                     <label>Nr Civico</label>
-                    <input type="text" class="form-control" name="nr_civico">
+                    <input type="text" class="form-control" name="nr_civico" value="<?php echo $info1[15];?>">
                 </div>
             </div>
             <div class="row">
@@ -190,52 +196,53 @@ $emri_oper=$rresht["emer"];
                 </div>
                 <div class="form-group col-lg-3">
                     <label>Cognome</label>
-                    <input type="text" class="form-control" name="cognome">
+                    <input type="text" class="form-control" name="cognome" value="<?php echo $info1[3];?>">
                 </div>
                 <div class="form-group col-lg-4">
                     <label>Luogo di nascita</label>
-                    <input type="text" class="form-control" name="luogo_nasc">
+                    <input type="text" class="form-control" name="luogo_nasc" value="<?php echo $info1[16];?>">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-2">
                     <label>N. Documento</label>
-                    <input type="text" class="form-control" name="n_doc">
+                    <input type="text" class="form-control" name="n_doc" value="<?php echo $info1[17];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Comune di Emessione</label>
-                    <input type="text" class="form-control" name="comune_emes">
+                    <input type="text" class="form-control" name="comune_emes" value="<?php echo $info1[18];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Data di Rilascio</label>
-                    <input type="text" class="form-control" name="data_rilasc">
+                    <input type="date" class="form-control" name="data_rilasc" value="<?php echo $info1[19];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Data di Scadenza</label>
-                    <input type="text" class="form-control" name="data_scad">
+                    <input type="date" class="form-control" name="data_scad" value="<?php echo $info1[20];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Codice Fiscale</label>
-                    <input type="text" class="form-control" name="cod_fisc">
+                    <input type="text" class="form-control" name="cod_fisc" value="<?php echo $info1[21];?>">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-4">
                     <label>Codice di Migrazione</label>
-                    <input type="text" class="form-control" name="cod_migr">
+                    <input type="text" class="form-control" name="cod_migr" value="<?php echo $info1[22];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Recapito di Cell</label>
-                    <input type="text" class="form-control" name="rec_cell">
+                    <input type="text" class="form-control" name="rec_cell" value="<?php echo $info1[23];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Operatore Cell</label>
-                    <input type="text" class="form-control" name="op_cell">
+                    <input type="text" class="form-control" name="op_cell" value="<?php echo $info1[24];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label >Offerta Scelta</label>
                     <select  class="form-control" name="offer_scelta">
-                        <option value="" disabled selected>Scegli Offerta</option>
+                        <option value="<?php echo $info1[25];?>" selected><?php echo $info1[25];?></option>
+                        <option value="" disabled >Scegli Offerta</option>
                         <option value="TUTTO VOCE">TUTTO VOCE</option>
                         <option value="ISL">ISL</option>
                         <option value="TSE">TSE</option>
@@ -254,17 +261,17 @@ $emri_oper=$rresht["emer"];
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Cell Off TSM</label>
-                    <input type="text" class="form-control" name="cel_off_tsm">
+                    <input type="text" class="form-control" name="cel_off_tsm" value="<?php echo $info1[26];?>">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-3">
                     <label>ICCID (TSM)</label>
-                    <input type="text" class="form-control" name="iccid">
+                    <input type="text" class="form-control" name="iccid" value="<?php echo $info1[27];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Codice Op</label>
-                    <input type="text" class="form-control" name="cod_op">
+                    <input type="text" class="form-control" name="cod_op" value="<?php echo $info1[28];?>">
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Data</label>
@@ -272,17 +279,17 @@ $emri_oper=$rresht["emer"];
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Stato</label>
-                    <input type="text" class="form-control" name="stato" value="Waiting" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                    <input type="text" class="form-control" name="stato" value="<?php echo $info1[5];?>" style="color: #2e6da4;background: #d3d3d3;" >
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Motivazione</label>
-                    <input type="text" class="form-control" name="motivazione" value="in Lavorazione" style="color: #2e6da4;background: #d3d3d3;" disabled>
+                    <input type="text" class="form-control" name="motivazione" value="<?php echo $info1[29];?>" style="color: #2e6da4;background: #d3d3d3;" >
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-12">
                     <label>Note</label>
-                    <textarea class="form-control" style="height: 100px" name="note" ></textarea>
+                    <textarea class="form-control" style="height: 100px" name="note"  ><?php echo $info1[30];?></textarea>
                 </div>
             </div>
             <button type="submit" name="aggiungi" class="btn btn-primary">Modifica Contratto</button>
@@ -356,16 +363,19 @@ if(isset($_POST['aggiungi'])){
 
     //shto ne databaze
     $query = mysqli_query($link,"
-INSERT INTO `kliente` (`id`, `data`, `emer`, `mbiemer`, `status`, `#id_Operator`, `gestore_tel`, `tipologia_cnt`, `app_cnt`, `numero_fisso`, `comune`, `provincia`, `cap`,
- `via`, `nr_civico`, `luogo_di_nascita`, `nr_documento`, `comune_emmissione`, `data_rilascio`, `data_scadenza`, `codice_fiscale`, `codice_migrazione`, 
- `recapito_cell`, `operatore_cell`, `offerta_scelta`, `cell_off_tsm`, `iccid`, `codice_op`, `motivazione`, `note`, `id_admin`, `frazione`)
-  VALUES (NULL, '$today', '$info[11]', '$info[12]', '$info[26]', '', '$info[1]', '$info[2]', '$info[3]', '$info[4]', '$info[5]', '$info[6]', '$info[8]', 
-  '$info[9]', '$info[10]', '$info[13]', '$info[14]', '$info[15]', '$info[16]', '$info[17]', '$info[18]', '$info[19]', '$info[20]', '$info[21]', '$info[22]', '$info[23]', 
-  '$info[24]', '$info[25]', '$info[27]', '$info[28]', '$pid', '$info[7]');");
+UPDATE `kliente` SET `emer` = '$info[11]', `mbiemer` = '$info[12]', `status` = '$info[26]', `gestore_tel` = '$info[1]', `tipologia_cnt` = '$info[2]', `app_cnt` = '$info[3]', 
+`numero_fisso` = '$info[4]', `comune` = '$info[5]', `provincia` = '$info[6]', `cap` = '$info[8]', `via` = '$info[9]', `nr_civico` = '$info[10]', `luogo_di_nascita` = '$info[13]', 
+`nr_documento` = '$info[14]', `comune_emmissione` = '$info[15]', `data_rilascio` = '$info[16]', `data_scadenza` = '$info[17]', `codice_fiscale` = '$info[18]', 
+`codice_migrazione` = '$info[19]', `recapito_cell` = '$info[20]', `operatore_cell` = '$info[21]', `offerta_scelta` = '$info[22]', `cell_off_tsm` = '$info[23]', `iccid` = '$info[24]', 
+`codice_op` = '$info[25]', `motivazione` = '$info[27]', `note` = '$info[28]', `frazione` = '$info[7]' WHERE `kliente`.`id` = '$id_kontrata'
+
+
+
+");
 
 
     echo '<script language="javascript">';
-    echo 'alert("Il contratto e stato aggiunto \n")';
+    echo 'alert("Il contratto e stato modificato \n")';
     echo '</script>';
     echo "<script> location.href='arkiv.php'; </script>";
 
