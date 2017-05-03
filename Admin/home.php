@@ -78,11 +78,11 @@ while ($r=mysqli_fetch_assoc($total_query)){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Admin Panel</a>
+            <a class="navbar-brand" href="#">Admin Panel</a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse navbar-ex1-collapse" >
             <ul id="active" class="nav navbar-nav side-nav">
-                <li ><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                <li ><a href="#"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
                 <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
 
@@ -138,9 +138,36 @@ while ($r=mysqli_fetch_assoc($total_query)){
             </div >
         </div>
         <div class="row">
+			
             <div class="col-lg-6">
+			
                 <h2 style="color: black">Registra operatore</h2>
-            </div>
+				<form method="post" class="text-primary">
+				<div class="row">
+					<div class="form-group col-lg-4">
+						<label>Nome</label>
+						<input type="text" class="form-control" name="emer" >
+					</div>
+					<div class="form-group col-lg-4">
+						<label>Cognome</label>
+						<input type="text" class="form-control" name="mbiemer" >
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-lg-4">
+						<label>Username</label>
+						<input type="text" class="form-control" name="username" >
+					</div>
+					<div class="form-group col-lg-4">
+						<label>Password</label>
+						<input type="password" class="form-control" name="password" >
+					</div>
+				</div>
+				<button type="submit" name="registra" class="btn btn-primary">Registra</button>
+					
+				</form>
+            
+			</div>
             <div class="col-lg-6">
                 <h2 style="color: black">Modifica Password</h2>
             </div>
@@ -155,7 +182,25 @@ while ($r=mysqli_fetch_assoc($total_query)){
 </div>
 
 
+<?php 
+include("../db_connect.php");
 
+if(isset($_POST['registra'])){
+	$op_name=$_POST['emer'];
+	$op_surname=$_POST['mbiemer'];
+	$op_user=$_POST['username'];
+	$op_pass=$_POST['password'];
+	
+	$query=mysqli_query($link,"INSERT INTO `crm`.`operator` (`id`, `emer`, `mbiemer`, `username`, `password`) VALUES (NULL, '$op_name', '$op_surname', '$op_user', '$op_pass');");
+	
+	
+	
+	
+}
+
+
+
+?>
 
 
 
