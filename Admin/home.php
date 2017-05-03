@@ -108,8 +108,13 @@ while ($r=mysqli_fetch_assoc($total_query)){
             </ul>
         </div>
     </nav>
-
+    <div class="row"  >
+        <div class="col-lg-12" >
+            <img src="icon.png">
+        </div>
+    </div>
     <div id="page-wrapper">
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-primary">
@@ -131,6 +136,14 @@ while ($r=mysqli_fetch_assoc($total_query)){
                 </div>
 
             </div >
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 style="color: black">Registra operatore</h2>
+            </div>
+            <div class="col-lg-6">
+                <h2 style="color: black">Modifica Password</h2>
+            </div>
         </div>
 
     </div>
