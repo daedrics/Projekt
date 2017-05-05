@@ -24,6 +24,7 @@ if($rows!=0){
     <title>Icon Albania</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
     <link href="index.css" type="text/css" rel="stylesheet" />
     <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
@@ -33,7 +34,11 @@ if($rows!=0){
 <body class="backg" >
 <div class="transp">
     <div id="titulli">
-        <h2>Icon Albania</h2>
+        <div class="row"  >
+            <div class="col-lg-12" >
+                <img src="icon.png">
+            </div>
+        </div>
     </div>
     <div id="login">
 
