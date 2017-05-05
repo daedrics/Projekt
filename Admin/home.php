@@ -52,7 +52,7 @@ while ($r=mysqli_fetch_assoc($total_query)){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Dark Admin</title>
+    <title>Icon Albania</title>
 
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
@@ -64,7 +64,7 @@ while ($r=mysqli_fetch_assoc($total_query)){
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
 
     <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/dark-bootstrap/all.min.css" />
-
+   <script type="text/javascript" src="indexjs.js"></script>
     <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
 </head>
@@ -146,21 +146,21 @@ while ($r=mysqli_fetch_assoc($total_query)){
 				<div class="row">
 					<div class="form-group col-lg-4">
 						<label>Nome</label>
-						<input type="text" class="form-control" name="emer" >
+						<input type="text" class="form-control" name="emer"onfocusout="korniza(plotesuar('emer'), 'emer')" required >
 					</div>
 					<div class="form-group col-lg-4">
 						<label>Cognome</label>
-						<input type="text" class="form-control" name="mbiemer" >
+						<input type="text" class="form-control" name="mbiemer" onfocusout="korniza(plotesuar('mbiemer'), 'mbiemer')" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-lg-4">
 						<label>Username</label>
-						<input type="text" class="form-control" name="username" >
+						<input type="text" class="form-control" name="username" onfocusout="korniza(plotesuar('username'), 'username')" required>
 					</div>
 					<div class="form-group col-lg-4">
 						<label>Password</label>
-						<input type="password" class="form-control" name="password" >
+						<input type="password" class="form-control" name="password" onfocusout="korniza(plotesuar('password'), 'password')" required>
 					</div>
 				</div>
 				<button type="submit" name="registra" class="btn btn-primary">Registra</button>

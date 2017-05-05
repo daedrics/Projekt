@@ -22,7 +22,7 @@ else{
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Dark Admin</title>
+    <title>Icon Albania</title>
 
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
@@ -80,7 +80,11 @@ else{
             </div>
         </nav>
 
-
+ <div class="row"  >
+        <div class="col-lg-12" >
+            <img src="icon.png">
+        </div>
+    </div>
         <div id="page-wrapper">
             <h3 class="text-muted" style="padding-bottom: 20px">Raccolta Dati (aggiungi contratto)</h3>
             <form method="post" class="text-primary" >
