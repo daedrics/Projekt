@@ -272,10 +272,10 @@ if(isset($_POST['cerca'])){
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Totale <?php echo $i.'('.$i/$i*100 ?>%)</td>
-                                <td>OK <?php echo $ok.'('.number_format($ok/$i*100,2)?>%)</td>
-                                <td>Pritje <?php echo $pritje.'('.number_format($pritje/$i*100,2) ?>%)</td>
-                                <td>KO <?php echo $ko.'('.number_format($ko/$i*100,2) ?>%)</td>
+                                <td>Totale <?php echo $j.'('.$j/$j*100 ?>%)</td>
+                                <td>OK <?php echo $ok.'('.number_format($ok/$j*100,2)?>%)</td>
+                                <td>Pritje <?php echo $pritje.'('.number_format($pritje/$j*100,2) ?>%)</td>
+                                <td>KO <?php echo $ko.'('.number_format($ko/$j*100,2) ?>%)</td>
                             </tr>
                         </tbody>
 					</table>
