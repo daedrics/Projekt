@@ -192,19 +192,33 @@ echo '
                             <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca">
 
                         </div>
+</form>
+               
+					
+					
+				
+		
+                <form action="excel.php" method="post" Content-Type= "application/xls" name="myformD" >
+                <div class="form-group col-lg-2">
 
-                   </form>
-                    <form style="padding-top:25px"  action="excel.php" method="post" Content-Type= "application/xls" name="myform">
-                <div class="col-lg-2">
+                    <label>Data inizio</label>
+                            <input type="date" class="form-control" name="d_inX" >
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label>Data fine</label>
+                            <input type="date" class="form-control" name="d_outX">
+				<div class="form-group col-lg-2"  >
 
-                            <input type ="submit" name="export_excel" class="btn btn-success" value="Export to Excel" />
+                            <input type ="submit" name="export_excelD" class="btn btn-success" value="Export to Excel" />
 
                     </div>
-                    </form>
-
-				
-				<div class="col-lg-1" ><label style="font-size:18px">Visualizza</label></div>
-				<div class="col-lg-1 ">
+					</form>
+					
+                    
+                </div>
+					
+				<div style="padding-top:25px"  class="col-lg-1" ><label style="font-size:18px">Visualizza</label></div>
+				<div style="padding-top:18px" class="col-lg-1 ">
 					
                     <select  class="form-control" onchange="setPage();" id="elementi">
                         
@@ -214,15 +228,11 @@ echo '
                     </select>
 					
 				</div>
-				<div class="col-lg-1"><label style="font-size:18px">Elementi</label>
+				<div  style="padding-top:25px"  class="col-lg-1"><label style="font-size:18px">Elementi</label>
 				</div>
 				
 			</div>
 
-		
-                
-                    
-                </div>
            
 		<div class="row">
                 <div class="col-lg-12">
