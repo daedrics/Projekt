@@ -47,6 +47,22 @@ while ($r=mysqli_fetch_assoc($total_query)){
 
 ?>
 
+<?php
+include("../db_connect.php");
+
+$sql=mysqli_query($link,"SELECT * FROM `operator`");
+
+$j=0;
+$op=NULL;
+while ($r=mysqli_fetch_assoc($sql)){
+    $op[$j]=$r["username"];
+    $j++;
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,7 +185,32 @@ while ($r=mysqli_fetch_assoc($total_query)){
             
 			</div>
             <div class="col-lg-6">
+                <form method="post" class="text-primary">
                 <h2 style="color: black">Modifica Password</h2>
+                <div class="row">
+                    <div class="col-lg-4 form-group">
+                        <label>Operatore</label>
+                        <input type="text" class="form-control" name="operatore" placeholder="Seleziona user" list="users" required>
+                        <datalist id="users">
+                            <?php
+                            if($op!=NULL){
+                            for($i=0;$i<sizeof($op);$i++){
+                                echo '<option value="'.$op[$i].'">';
+                            }}
+                            else
+                                echo 'koot';
+                            ?>
+                        </datalist>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label>Metti nuovo password</label>
+                            <input type="password" class="form-control" name="pass"  required>
+                        </div>
+                    </div>
+                    <button type="submit" name="modifica" class="btn btn-primary">Modifica</button>
+                </form>
             </div>
         </div>
 
@@ -180,7 +221,19 @@ while ($r=mysqli_fetch_assoc($total_query)){
 
 
 </div>
+<?php
+include("../db_connect.php");
+if(isset($_POST['modifica'])){
+    $passi=$_POST['pass'];
+    $oper=$_POST['operatore'];
+    $sql1=mysqli_query($link,"UPDATE `operator` SET `password` = '$passi' WHERE `operator`.`username` = '$oper'");
 
+    echo '<script language="javascript">';
+    echo 'alert("Il password e stato modificato. \n")';
+    echo '</script>';
+    echo "<script> location.href='#'; </script>";
+}
+?>
 
 <?php 
 include("../db_connect.php");
@@ -192,8 +245,11 @@ if(isset($_POST['registra'])){
 	$op_pass=$_POST['password'];
 	
 	$query=mysqli_query($link,"INSERT INTO `crm`.`operator` (`id`, `emer`, `mbiemer`, `username`, `password`) VALUES (NULL, '$op_name', '$op_surname', '$op_user', '$op_pass');");
-	
-	
+
+    echo '<script language="javascript">';
+    echo 'alert("L\'operatore e stato registrato. \n")';
+    echo '</script>';
+    echo "<script> location.href='#'; </script>";
 	
 	
 }
