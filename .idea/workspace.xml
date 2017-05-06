@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8c1a840-8f7d-4699-bd58-234586a55573" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/arkiv.php" afterPath="$PROJECT_DIR$/Admin/arkiv.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,24 +28,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="arkiv.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="arkiv.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Admin/arkiv.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="38" column="112" lean-forward="false" selection-start-line="38" selection-start-column="112" selection-end-line="38" selection-end-column="112" />
+            <state relative-caret-position="438">
+              <caret line="141" column="1" lean-forward="false" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1494085843082" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
-                <marker date="1494085843082" expanded="true" signature="2427:2463" ph="{...}" />
-                <marker date="1494085843082" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
-                <marker date="1494085843082" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
-                <marker date="1494085843082" expanded="true" signature="15048:15074" ph="..." />
+                <marker date="1494090297789" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
+                <marker date="1494090297789" expanded="true" signature="2426:2462" ph="{...}" />
+                <marker date="1494090297789" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
+                <marker date="1494090297789" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
+                <marker date="1494090297789" expanded="true" signature="15048:15074" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arkiv.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="arkiv.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/arkiv.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -122,8 +122,8 @@
         <option value="$PROJECT_DIR$/User/insert.php" />
         <option value="$PROJECT_DIR$/Login/index.php" />
         <option value="$PROJECT_DIR$/User/getdata.php" />
-        <option value="$PROJECT_DIR$/Admin/arkiv.php" />
         <option value="$PROJECT_DIR$/User/arkiv.php" />
+        <option value="$PROJECT_DIR$/Admin/arkiv.php" />
       </list>
     </option>
   </component>
@@ -297,7 +297,7 @@
       <workItem from="1492469893280" duration="4566000" />
       <workItem from="1492869411223" duration="17847000" />
       <workItem from="1493636676515" duration="19745000" />
-      <workItem from="1493732177628" duration="28189000" />
+      <workItem from="1493732177628" duration="28303000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1492460531272</created>
@@ -317,7 +317,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109569000" />
+    <option name="totallyTimeSpent" value="109683000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -460,11 +460,11 @@
           <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1494085843082" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
-            <marker date="1494085843082" expanded="true" signature="2427:2463" ph="{...}" />
-            <marker date="1494085843082" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
-            <marker date="1494085843082" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
-            <marker date="1494085843082" expanded="true" signature="15048:15074" ph="..." />
+            <marker date="1494090297789" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
+            <marker date="1494090297789" expanded="true" signature="2426:2462" ph="{...}" />
+            <marker date="1494090297789" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
+            <marker date="1494090297789" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
+            <marker date="1494090297789" expanded="true" signature="15048:15074" ph="..." />
           </folding>
         </state>
       </provider>
@@ -521,11 +521,11 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1494085843082" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
-            <marker date="1494085843082" expanded="true" signature="2427:2463" ph="{...}" />
-            <marker date="1494085843082" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
-            <marker date="1494085843082" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
-            <marker date="1494085843082" expanded="true" signature="15048:15074" ph="..." />
+            <marker date="1494090297789" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
+            <marker date="1494090297789" expanded="true" signature="2426:2462" ph="{...}" />
+            <marker date="1494090297789" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
+            <marker date="1494090297789" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
+            <marker date="1494090297789" expanded="true" signature="15048:15074" ph="..." />
           </folding>
         </state>
       </provider>
@@ -762,21 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/arkiv.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="38" column="112" lean-forward="false" selection-start-line="38" selection-start-column="112" selection-end-line="38" selection-end-column="112" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1494085843082" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
-            <marker date="1494085843082" expanded="true" signature="2427:2463" ph="{...}" />
-            <marker date="1494085843082" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
-            <marker date="1494085843082" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
-            <marker date="1494085843082" expanded="true" signature="15048:15074" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/User/arkiv.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -786,6 +771,21 @@
             <marker date="1494086961268" expanded="true" signature="2384:2420" ph="{...}" />
             <marker date="1494086961268" expanded="true" signature="9398:9470" ph="SELECT * FRO... operator" />
             <marker date="1494086961268" expanded="true" signature="9629:9708" ph="UPDATE `oper... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/arkiv.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="141" column="1" lean-forward="false" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1494090297789" expanded="true" signature="1829:1901" ph="SELECT * FRO... kliente" />
+            <marker date="1494090297789" expanded="true" signature="2426:2462" ph="{...}" />
+            <marker date="1494090297789" expanded="true" signature="9566:9635" ph="SELECT * FRO... admin" />
+            <marker date="1494090297789" expanded="true" signature="9794:9867" ph="UPDATE `admi... " />
+            <marker date="1494090297789" expanded="true" signature="15048:15074" ph="..." />
           </folding>
         </state>
       </provider>

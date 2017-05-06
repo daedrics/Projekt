@@ -68,7 +68,7 @@ if(isset($_POST['cerca'])) {
     }
 
 
-}
+
 
 echo '<script type="text/javascript">
                 jQuery(function ($) {
@@ -139,7 +139,7 @@ echo '
          });
     
     </script>';
-
+}
 
 ?>
 
