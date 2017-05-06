@@ -356,7 +356,7 @@ echo '
                 sorting: {
             multiple: false
                 },
-                rowHover: true,
+                rowHover: false,
                 
 					paging:7
 				
