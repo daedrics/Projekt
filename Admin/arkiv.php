@@ -360,7 +360,9 @@ echo '
                 
 					paging:7
 				
-            ,
+            , events: {
+                dataBound: dataBoundFunction
+            },
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
@@ -434,8 +436,62 @@ echo '
         var x=document.getElementById('elementi').value;
         $("#shieldui-grid1").swidget().pager.pageSize(x);
         $("#shieldui-grid1").refresh();
+		
              }
-    </script>
+			 
+    function dataBoundFunction(e) {
+		
+        var data = e.target.dataSource.view,
+            rows = e.target.contentTable.find(">tbody>tr"),
+            i;
+        for (i = 0; i < data.length; i++) {
+            var item = data[i];
+            if (item.Status == 'ok') {
+                $(rows[i].cells[8]).addClass("jeshile");
+            }
+            if (item.Status =='ko' ) {
+                $(rows[i].cells[8]).addClass("kuqe");
+            }
+            if (item.Status =='wip' ) {
+                $(rows[i].cells[8]).addClass("bardhe");
+            }
+			if (item.Status =='recuperato' ) {
+                $(rows[i].cells[8]).addClass("verdhe");
+            }
+        }
+    }
+</script>
+<style type="text/css">
+    .jeshile {
+		color:#ffffff;
+       text-align: center;
+	   font-size: 120%;
+	   font-weight: 900;
+	   background-color:#5cb85c;
+    }
+       .kuqe {
+		color:#ffffff;
+       text-align: center;
+	   font-size: 120%;
+	   font-weight: 900;
+	   background-color:#d9534f;
+    }   
+	.bardhe {
+		color:#000000;
+       text-align: center;
+	   font-size: 120%;
+	   font-weight: 900;
+	   background-color:#ffffff;
+    }   
+	.verdhe {
+		color:#ffffff;
+       text-align: center;
+	   font-size: 120%;
+	   font-weight: 900;
+	   background-color:#f0ad4e;
+    }
+    
+</style>
     <div class="modal fade" id="1Modal" role="dialog">
         <div class="modal-dialog">
 

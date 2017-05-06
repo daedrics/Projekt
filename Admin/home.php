@@ -226,11 +226,11 @@ while ($r=mysqli_fetch_assoc($sql)){
                         <table class="table">
                             <tbody>
                             <tr>
-                                <td>Totale <?php echo $total.'('.$total/$total*100 ?>%)</td>
-                                <td>OK <?php echo $ok_muaj.'('.number_format($ok_muaj/$total*100,2)?>%)</td>
-                                <td>Pritje <?php echo $pritje_muaj.'('.number_format($pritje_muaj/$total*100,2) ?>%)</td>
-                                <td>KO <?php echo $ko_muaj.'('.number_format($ko_muaj/$total*100,2) ?>%)</td>
-
+							<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $total.'('.$total/$total*100 ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok_muaj.'('.number_format($ok_muaj/$total*100,2)?>%)</span></button></td>
+					<td><button type="button" class="btn btn-warning">Pritje <span class="badge"><?php echo $pritje_muaj.'('.number_format($pritje_muaj/$total*100,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko_muaj.'('.number_format($ko_muaj/$total*100,2) ?>%)</span></button></td>
+                               
                             </tr>
                             </tbody>
                         </table>
