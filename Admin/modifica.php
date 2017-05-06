@@ -74,7 +74,7 @@ $emri_oper=$rresht["emer"];
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local1.css" />
 
     <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
@@ -361,11 +361,14 @@ $emri_oper=$rresht["emer"];
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Stato</label>
-                    <input type="text" class="form-control" name="stato" value="<?php echo $info1[5];?>" style="color: #2e6da4;background: #d3d3d3;" >
+                    <input type="text" class="form-control" name="stato" value="<?php echo $info1[5];?>" >
                 </div>
-                <div class="form-group col-lg-2">
+
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-12">
                     <label>Motivazione</label>
-                    <input type="text" class="form-control" name="motivazione" value="<?php echo $info1[29];?>" style="color: #2e6da4;background: #d3d3d3;" >
+                    <textarea  class="form-control" name="motivazione"  style="height: 100px"> <?php echo $info1[29];?></textarea>
                 </div>
             </div>
             <div class="row">
