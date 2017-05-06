@@ -26,7 +26,7 @@ else{
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local1.css" />
 
     <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
@@ -61,7 +61,7 @@ else{
                 <ul class="nav navbar-nav navbar-right navbar-user">
 
                     <li class="dropdown user-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="home.php"><i class="fa fa-user"></i> Home</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-gear"></i> Cambia Password</a></li>
@@ -156,28 +156,6 @@ else{
         }
 
         ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  <div class="row"  >
         <div class="col-lg-12" >
             <img src="icon.png">

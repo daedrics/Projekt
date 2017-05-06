@@ -29,14 +29,14 @@ else{
 
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local1.css" />
 
     <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
 
-    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/dark-bootstrap-gradient/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/light-mint/all.min.css" />
 
     <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
@@ -142,8 +142,6 @@ echo '
 }
 
 ?>
-
-
 <body style="background:white ">
     <div id="wrapper" >
 	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -161,12 +159,11 @@ echo '
                     <li ><a href="home.php"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
                     <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
-
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
 
                     <li class="dropdown user-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="home.php"><i class="fa fa-user"></i> Home</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-gear"></i> Cambia Password</a></li>
@@ -184,8 +181,6 @@ echo '
                 </ul>
             </div>
         </nav>
-
-
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
 
@@ -261,27 +256,12 @@ echo '
         }
 
         ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		 <div class="row"  >
-        <div class="col-lg-12" >
+      <div class="row">
+        <div class="col-lg-3" >
             <img src="icon.png">
         </div>
-    </div>
-		<div id="page-wrapper">
+      </div>
+      <div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-primary">
@@ -290,11 +270,10 @@ echo '
 					<table class="table">
 					<tbody>
 					<tr>
-					<td>Totale <?php echo $tot.'('.$tot/$tot*100 ?>%)</td>
-					<td>OK <?php echo $ok.'('.number_format($ok/$tot*100,2)?>%)</td>
-					<td>Pritje <?php echo $pritje.'('.number_format($pritje/$tot*100,2) ?>%)</td>
-					<td>KO <?php echo $ko.'('.number_format($ko/$tot*100,2) ?>%)</td>
-
+					<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $tot.'('.$tot/$tot*100 ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok.'('.number_format($ok/$tot*100,2)?>%)</span></button></td>
+					<td><button type="button" class="btn btn-warning">Pritje <span class="badge"><?php echo $pritje.'('.number_format($pritje/$tot*100,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko.'('.number_format($ko/$tot*100,2) ?>%)</span></button></td>
 					</tr>
 					</tbody>
 					</table>
@@ -302,55 +281,36 @@ echo '
 				 </div>
                 </div>
 
-            </div ></div>
+            </div>
+        </div>
 
-                <div class="row" >
-                   <form method="post" >
-                <div class="form-group col-lg-2">
-
-                    <label>Data inizio</label>
-                            <input type="date" class="form-control" name="d_in" >
-                        </div>
-                        <div class="form-group col-lg-2">
-                            <label>Data fine</label>
-                            <input type="date" class="form-control" name="d_out">
-                        </div>
-                        <div style="padding-top:25px" class="form-group col-lg-1 ">
-
-                            <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca">
-
-                        </div>
-                            </form>
-               
-					
-					
-				
-		
-
+            <div class="row" >
+                <form method="post" >
+                    <div class="form-group col-lg-2">
+                        <label>Data inizio</label>
+                        <input type="date" class="form-control" name="d_in" >
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <label>Data fine</label>
+                        <input type="date" class="form-control" name="d_out">
+                    </div>
+                    <div style="padding-top:25px" class="form-group col-lg-1 ">
+                        <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca">
+                    </div>
+                </form>
                     <button type="button" style="margin-top: 18px" class="btn btn-success" data-toggle="modal" data-target="#1Modal">Export to Excel</button>
-                    
-
-
-
-
-
-
-
-
-					
-				<div style="padding-top:25px"  class="col-lg-1" ><label style="font-size:18px">Visualizza</label></div>
-				<div style="padding-top:18px" class="col-lg-1 ">
-					
-                    <select  class="form-control" onchange="setPage();" id="elementi">
-                        
-                        <option value="10" selected>10</option>
-                        <option value="5">5</option>
-
-                    </select>
-					
-				</div>
-				<div  style="padding-top:25px"  class="col-lg-1"><label style="font-size:18px">Elementi</label>
-				</div>
+                    <div style="padding-top:25px"  class="col-lg-1">
+                        <label style="font-size:18px">Visualizza</label>
+                    </div>
+                    <div style="padding-top:18px" class="col-lg-1 ">
+                        <select  class="form-control" onchange="setPage();" id="elementi">
+                            <option value="10" selected>10</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div  style="padding-top:25px"  class="col-lg-1">
+                        <label style="font-size:18px">Elementi</label>
+                    </div>
                 </div>
 			</div>
 
