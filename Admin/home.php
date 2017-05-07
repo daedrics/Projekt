@@ -28,6 +28,7 @@ $data_mb=$year.'-'.$month.'-31';
 
 $total_query=mysqli_query($link,"SELECT * FROM kliente WHERE data >='$data_f' AND data <= '$data_mb';");
 $total=0;
+$wip_muaj=0;
 $ok_muaj=0;
 $pritje_muaj=0;
 $ko_muaj=0;
@@ -39,6 +40,8 @@ while ($r=mysqli_fetch_assoc($total_query)){
     }
     else if (strcasecmp($status[$total],'ko')==0)
         $ko_muaj++;
+	 else if (strcasecmp($status[$total],'wip')==0)
+		 $wip_muaj++;
     else $pritje_muaj++;
 
     $total++;
@@ -230,7 +233,7 @@ while ($r=mysqli_fetch_assoc($sql)){
 					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok_muaj.'('.number_format($ok_muaj/$total*100,2)?>%)</span></button></td>
 					<td><button type="button" class="btn btn-warning">Pritje <span class="badge"><?php echo $pritje_muaj.'('.number_format($pritje_muaj/$total*100,2) ?>%)</span></button></td>
 					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko_muaj.'('.number_format($ko_muaj/$total*100,2) ?>%)</span></button></td>
-                               
+                    <td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip_muaj.'('.number_format($wip_muaj/$tot*100,2) ?>%)</span></button></td> 
                             </tr>
                             </tbody>
                         </table>

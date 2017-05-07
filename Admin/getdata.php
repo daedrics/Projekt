@@ -12,7 +12,7 @@ $pass=$row[4];
 
 
 $kontrata= mysqli_query($link,"SELECT * FROM `kliente`");
-
+$wip=0;
 $tot=0;
 $ko=0;
 $pritje=0;
@@ -33,6 +33,8 @@ while ($r=mysqli_fetch_assoc($kontrata)){
 	}
 	else if (strcasecmp($status[$tot],'ko')==0)
 		$ko++;
+	else if (strcasecmp($status[$tot],'wip')==0)
+		$wip++;
 else $pritje++;
 
     $tot++;

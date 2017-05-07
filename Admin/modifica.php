@@ -378,6 +378,7 @@ $emri_oper=$rresht["emer"];
                 </div>
             </div>
             <button type="submit" name="aggiungi" class="btn btn-primary">Modifica Contratto</button>
+			 <button type="submit" name="elimina" class="btn btn-primary">Elimina Contratto</button>
 
 
         </form>
@@ -461,6 +462,55 @@ UPDATE `kliente` SET `emer` = '$info[11]', `mbiemer` = '$info[12]', `status` = '
 
     echo '<script language="javascript">';
     echo 'alert("Il contratto e stato modificato \n")';
+    echo '</script>';
+    echo "<script> location.href='arkiv.php'; </script>";
+
+}
+if(isset($_POST['elimina'])){
+
+    $info = array('','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
+    $info[1] = $_POST['gestore'];
+    $info[2] = $_POST['tipologia'];
+    $info[3] = $_POST['app'];
+    $info[4] = $_POST['nr_fisso'];
+    $info[5] = $_POST['comune'];
+    $info[6] = $_POST['provincia'];
+    $info[7] = $_POST['frazione'];
+    $info[8] = $_POST['cap'];
+    $info[9] = $_POST['via'];
+    $info[10] = $_POST['nr_civico'];
+    $info[11] = $_POST['nome'];
+    $info[12] = $_POST['cognome'];
+    $info[13] = $_POST['luogo_nasc'];
+    $info[14] = $_POST['n_doc'];
+    $info[15] = $_POST['comune_emes'];
+    $info[16] = $_POST['data_rilasc'];
+    $info[17] = $_POST['data_scad'];
+    $info[18] = $_POST['cod_fisc'];
+    $info[19] = $_POST['cod_migr'];
+    $info[20] = $_POST['rec_cell'];
+    $info[21] = $_POST['op_cell'];
+    $info[22] = $_POST['offer_scelta'];
+    $info[23] = $_POST['cel_off_tsm'];
+    $info[24] = $_POST['iccid'];
+    $info[25] = $_POST['cod_op'];
+    $info[26] = $_POST['stato'];
+    $info[27] = $_POST['motivazione'];
+    $info[28] = $_POST['note'];
+    $today = date("Y-m-d ");
+
+
+    //shto ne databaze
+    $query = mysqli_query($link,"
+DELETE FROM `kliente`  WHERE `kliente`.`id` = '$id_kontrata'
+
+
+
+");
+
+
+    echo '<script language="javascript">';
+    echo 'alert("Il contratto e stato elemina \n")';
     echo '</script>';
     echo "<script> location.href='arkiv.php'; </script>";
 
