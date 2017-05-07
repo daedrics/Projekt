@@ -16,7 +16,7 @@ $j=0;
 $ko=0;
 $pritje=0;
 $ok=0;
-$wipi=0; $toti=0;$koi=0;$oki=0;
+$wipi=0; $toti=0;$koi=0;$oki=0;$pritjei=0;$wip=0;
 while ($r=mysqli_fetch_assoc($kontrata)){
     $id_k[$j]=$r['id'];
     $data[$j]=$r['data'];

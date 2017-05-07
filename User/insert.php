@@ -53,13 +53,14 @@ else{
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
+                    <li><a href="draft.php"><i class="fa fa-bookmark-o"></i> Draft</a></li>
                     <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
 
                     <li class="dropdown user-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-user"></i> Cambia Password</a></li>
                           
@@ -321,8 +322,14 @@ else{
                         <textarea class="form-control" style="height: 100px" name="note" ></textarea>
                     </div>
                 </div>
-                <button type="submit" name="aggiungi" class="btn btn-primary">Aggiungi</button>
-
+                <div class="row">
+                    <div class="col-lg-1">
+                         <button type="submit" name="aggiungi" class="btn btn-primary">Aggiungi</button>
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="submit" name="aggiungi_draft" class="btn btn-success">Salva Come Draft</button>
+                    </div>
+                </div>
 
             </form>
         </div>
@@ -411,5 +418,77 @@ INSERT INTO `kliente` (`id`, `data`, `emer`, `mbiemer`, `status`, `#id_Operator`
     
 }
 ?>
+    <?php
+    include ("../db_connect.php");
+
+
+
+
+
+    if(isset($_POST['aggiungi_draft'])){
+
+        $info = array('','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
+        $info[1] = $_POST['gestore'];
+        $info[2] = $_POST['tipologia'];
+        $info[3] = $_POST['app'];
+        $info[4] = $_POST['nr_fisso'];
+        $info[5] = $_POST['comune'];
+        $info[6] = $_POST['provincia'];
+        $info[7] = $_POST['frazione'];
+        $info[8] = $_POST['cap'];
+        $info[9] = $_POST['via'];
+        $info[10] = $_POST['nr_civico'];
+        $info[11] = $_POST['nome'];
+        $info[12] = $_POST['cognome'];
+        $info[13] = $_POST['luogo_nasc'];
+        $info[14] = $_POST['n_doc'];
+        $info[15] = $_POST['comune_emes'];
+        $info[16] = $_POST['data_rilasc'];
+        $info[17] = $_POST['data_scad'];
+        $info[18] = $_POST['cod_fisc'];
+        $info[19] = $_POST['cod_migr'];
+        $info[20] = $_POST['rec_cell'];
+        $info[21] = $_POST['op_cell'];
+        $info[22] = $_POST['offer_scelta'];
+        $info[23] = $_POST['cel_off_tsm'];
+        $info[24] = $_POST['iccid'];
+        $info[25] = $_POST['cod_op'];
+        $info[26] = $_POST['stato'];
+        $info[27] = $_POST['motivazione'];
+        $info[28] = $_POST['note'];
+        $today = date("Y-m-d ");
+
+
+        //shto ne databaze
+        $query = mysqli_query($link,"
+INSERT INTO `draft` (`id`, `data`, `emer`, `mbiemer`, `status`, `#id_Operator`, `gestore_tel`, `tipologia_cnt`, `app_cnt`, `numero_fisso`, `comune`, `provincia`, `cap`,
+ `via`, `nr_civico`, `luogo_di_nascita`, `nr_documento`, `comune_emmissione`, `data_rilascio`, `data_scadenza`, `codice_fiscale`, `codice_migrazione`, 
+ `recapito_cell`, `operatore_cell`, `offerta_scelta`, `cell_off_tsm`, `iccid`, `codice_op`, `motivazione`, `note`, `id_admin`, `frazione`)
+  VALUES (NULL, '$today', '$info[11]', '$info[12]', '$info[26]', '$pid', '$info[1]', '$info[2]', '$info[3]', '$info[4]', '$info[5]', '$info[6]', '$info[8]', 
+  '$info[9]', '$info[10]', '$info[13]', '$info[14]', '$info[15]', '$info[16]', '$info[17]', '$info[18]', '$info[19]', '$info[20]', '$info[21]', '$info[22]', '$info[23]', 
+  '$info[24]', '$info[25]', '$info[27]', '$info[28]', '', '$info[7]');");
+
+
+        echo '<script language="javascript">';
+        echo 'alert("Il contratto e stato salvato come draft \n")';
+        echo '</script>';
+        echo "<script> location.href='draft.php'; </script>";
+
+    }
+    ?>
+    <script type="text/javascript">
+        var _delay = 3000;
+        function checkLoginStatus(){
+            $.get("../checkStatus.php", function(data){
+                if(!data) {
+                    window.alert("Duhet te besh log in")
+                    window.location = "../logout.php";
+                }
+                setTimeout(function(){  checkLoginStatus(); }, _delay);
+            });
+        }
+        checkLoginStatus();
+    </script>
+
 </body>
 </html>

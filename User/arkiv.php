@@ -156,13 +156,14 @@ if(isset($_POST['cerca'])){
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
+                    <li><a href="draft.php"><i class="fa fa-bookmark-o"></i> Draft</a></li>
                     <li><a href="#"><i class="fa fa-archive"></i> Archivio</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-user">
 
                     <li class="dropdown user-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-user"></i> Cambia Password</a></li>
                           
