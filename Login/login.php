@@ -38,6 +38,18 @@ if(isset($_POST['login_submit'])) {
          $_SESSION['logged']='user';
         header("Location: ../User/arkiv.php");
     }
+	 $query = mysqli_query($link, "SELECT * FROM `backoffice` WHERE `username` = '$usrn' AND `password` = '$pass';");
+    $rows=mysqli_num_rows($query);
+     if($rows!=0){
+
+        $r=mysqli_fetch_row($query);
+        $pid=$r[0];
+         $_SESSION['user']=$r[3];
+        $_SESSION['pid'] = $pid;
+         $_SESSION['logged']='user';
+        header("Location: ../Backoffice/arkiv.php");
+    }
+	
     else {
         echo '<script language="javascript">';
         echo 'alert("Te dhenat nuk jane te sakta!")';
@@ -46,3 +58,10 @@ if(isset($_POST['login_submit'])) {
 
     }
 }
+
+
+
+
+
+
+?>
