@@ -248,7 +248,7 @@ while ($r=mysqli_fetch_assoc($sql)){
                             <tr>
 							<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $total.'('.$toti_muaj ?>%)</span></button></td>
 					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok_muaj.'('.number_format($oki_muaj,2)?>%)</span></button></td>
-					<td><button type="button" class="btn btn-warning">Pritje <span class="badge"><?php echo $pritje_muaj.'('.number_format($pritjei_muaj,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-warning">Recuperato <span class="badge"><?php echo $pritje_muaj.'('.number_format($pritjei_muaj,2) ?>%)</span></button></td>
 					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko_muaj.'('.number_format($koi_muaj,2) ?>%)</span></button></td>
                     <td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip_muaj.'('.number_format($wipi_muaj,2) ?>%)</span></button></td> 
                             </tr>
