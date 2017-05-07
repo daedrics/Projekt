@@ -26,7 +26,7 @@ else{
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/local.css" />
+    <link rel="stylesheet" type="text/css" href="../css/local1.css" />
     <link rel="stylesheet" href="style.css" media="all" />
     <link rel="stylesheet" href="chatStyle.css" media="all" />
 
