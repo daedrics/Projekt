@@ -32,6 +32,7 @@ $wip_muaj=0;
 $ok_muaj=0;
 $pritje_muaj=0;
 $ko_muaj=0;
+$wipi_muaj=0; $toti_muaj=0;$koi_muaj=0;$oki_muaj=0;
 while ($r=mysqli_fetch_assoc($total_query)){
     $status[$total]=$r['status'];
     if(strcasecmp($status[$total],'ok')==0)
@@ -46,6 +47,22 @@ while ($r=mysqli_fetch_assoc($total_query)){
 
     $total++;
 }
+if($tot==0)
+{
+	$wipi_muaj=0;
+	$toti_muaj=0;
+	$koi_muaj=0;
+	$oki_muaj=0;
+}
+else{
+	$toti_muaj=$total/$total*100;
+	$oki_muaj=$ok_muaj/$total*100;
+	$koi_muaj=$ko_muaj/$total*100;
+	$wipi_muaj=$wip_muaj/$total*100;
+	$pritjei_muaj=$pritje_muaj/$total*100;
+}
+
+
 
 
 ?>
@@ -229,11 +246,11 @@ while ($r=mysqli_fetch_assoc($sql)){
                         <table class="table">
                             <tbody>
                             <tr>
-							<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $total.'('.$total/$total*100 ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok_muaj.'('.number_format($ok_muaj/$total*100,2)?>%)</span></button></td>
-					<td><button type="button" class="btn btn-warning">Pritje <span class="badge"><?php echo $pritje_muaj.'('.number_format($pritje_muaj/$total*100,2) ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko_muaj.'('.number_format($ko_muaj/$total*100,2) ?>%)</span></button></td>
-                    <td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip_muaj.'('.number_format($wip_muaj/$tot*100,2) ?>%)</span></button></td> 
+							<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $total.'('.$toti_muaj ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok_muaj.'('.number_format($oki_muaj,2)?>%)</span></button></td>
+					<td><button type="button" class="btn btn-warning">Pritje <span class="badge"><?php echo $pritje_muaj.'('.number_format($pritjei_muaj,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko_muaj.'('.number_format($koi_muaj,2) ?>%)</span></button></td>
+                    <td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip_muaj.'('.number_format($wipi_muaj,2) ?>%)</span></button></td> 
                             </tr>
                             </tbody>
                         </table>

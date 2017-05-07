@@ -16,6 +16,7 @@ $j=0;
 $ko=0;
 $pritje=0;
 $ok=0;
+$wipi=0; $toti=0;$koi=0;$oki=0;
 while ($r=mysqli_fetch_assoc($kontrata)){
     $id_k[$j]=$r['id'];
     $data[$j]=$r['data'];
@@ -32,11 +33,31 @@ while ($r=mysqli_fetch_assoc($kontrata)){
     }
     else if (strcasecmp($status[$j],'ko')==0)
         $ko++;
-    else $pritje++;
+    else if	(strcasecmp($status[$j],'wip')==0)
+	$wip++;
+else $pritje++;
+
     $j++;
 
 }
 
+if($j==0){
+	
+	$wipi=0;
+	$toti=0;
+	$koi=0;
+	$oki=0;
+}
+else{
+	$toti=$j/$j*100;
+	$oki=$ok/$j*100;
+	$koi=$ko/$j*100;
+	$wipi=$wip/$j*100;
+	$pritjei=$pritje/$j*100;
+}
+
+	
+	
 
 
 

@@ -272,11 +272,11 @@ if(isset($_POST['cerca'])){
                     <table class="table">
                         <tbody>
                             <tr>
-					<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $j.'('.$j/$j*100 ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok.'('.number_format($ok/$j*100,2)?>%)</span></button></td>
-					<td><button type="button" class="btn btn-warning">Pritje <span class="badge"><?php echo $pritje.'('.number_format($pritje/$j*100,2) ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko.'('.number_format($ko/$j*100,2) ?>%)</span></button></td>
-                                
+					<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $j.'('.$toti ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok.'('.number_format($oki,2)?>%)</span></button></td>
+					<td><button type="button" class="btn btn-warning">Recuperato <span class="badge"><?php echo $pritje.'('.number_format($pritjei,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko.'('.number_format($koi,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip.'('.number_format($wipi,2) ?>%)</span></button></td>	
                             </tr>
                         </tbody>
 					</table>
