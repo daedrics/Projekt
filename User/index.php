@@ -213,10 +213,12 @@ else{
             <?php
 
             if(isset($_POST['submit'])){
-                $name = $_POST['name'];
+
                 $msg = $_POST['enter_message'];
-                $query = "INSERT INTO `s_chat_messages` (`id`, `user`, `message`, `koha`) VALUES (NULL, '$name', '$msg', CURRENT_TIMESTAMP)";
-                $run = $link->query($query); }
+                $query = "INSERT INTO `s_chat_messages` (`id`, `user`, `message`, `koha`) VALUES (NULL, '$emer', '$msg', CURRENT_TIMESTAMP)";
+                $run = $link->query($query);
+                unset($msg);
+            }
             ?>
 
             </div>
