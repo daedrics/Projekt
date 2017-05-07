@@ -17,6 +17,7 @@ $tot=0;
 $ko=0;
 $pritje=0;
 $ok=0;
+$wipi=0; $toti=0;$koi=0;$oki=0;
 while ($r=mysqli_fetch_assoc($kontrata)){
     $id_k[$tot]=$r['id'];
     $data[$tot]=$r['data'];
@@ -41,8 +42,20 @@ else $pritje++;
 
 	
 }
-
-
+if($tot==0)
+{
+	$wipi=0;
+	$toti=0;
+	$koi=0;
+	$oki=0;
+}
+else{
+	$toti=$tot/$tot*100;
+	$oki=$ok/$tot*100;
+	$koi=$ko/$tot*100;
+	$wipi=$wip/$tot*100;
+	$pritjei=$pritje/$tot*100;
+}
 
 
 

@@ -270,11 +270,11 @@ echo '
 					<table class="table">
 					<tbody>
 					<tr>
-					<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $tot.'('.$tot/$tot*100 ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok.'('.number_format($ok/$tot*100,2)?>%)</span></button></td>
-					<td><button type="button" class="btn btn-warning">Recuperato <span class="badge"><?php echo $pritje.'('.number_format($pritje/$tot*100,2) ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko.'('.number_format($ko/$tot*100,2) ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip.'('.number_format($wip/$tot*100,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $tot.'('.$toti ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok.'('.number_format($oki,2)?>%)</span></button></td>
+					<td><button type="button" class="btn btn-warning">Recuperato <span class="badge"><?php echo $pritje.'('.number_format($pritjei,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko.'('.number_format($koi,2) ?>%)</span></button></td>
+					<td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip.'('.number_format($wipi,2) ?>%)</span></button></td>
 					</tr>
 					</tbody>
 					</table>
