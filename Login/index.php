@@ -1,25 +1,23 @@
 <?php
 include ("../db_connect.php");
 session_start();
-if($_SESSION!=NULL){
+if($_SESSION!=NULL) {
     $user = $_SESSION['user'];
     $query = mysqli_query($link, "SELECT username FROM `admin` WHERE `username` = '$user' ;");
-$rows=mysqli_num_rows($query);
-if($rows!=0){
-    header("Location: ../Admin/arkiv.php");
-}
-else if ($rows==0)
-{
-	$query = mysqli_query($link, "SELECT username FROM `backoffice` WHERE `username` = '$user' ;");
-$rows=mysqli_num_rows($query);
-if($rows!=0)
-	header("Location: ../Backoffice/arkiv.php");
-}
-    else{
-        header("Location: ../User/arkiv.php");
+    $rows = mysqli_num_rows($query);
+    if ($rows != 0) {
+        header("Location: ../Admin/arkiv.php");
+    } else {
+        $query = mysqli_query($link, "SELECT username FROM `backoffice` WHERE `username` = '$user' ;");
+        $rows = mysqli_num_rows($query);
+        if ($rows != 0)
+            header("Location: ../Backoffice/arkiv.php");
+
+        else {
+            header("Location: ../User/arkiv.php");
+        }
     }
 }
-
 
 ?>
 

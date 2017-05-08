@@ -1,6 +1,8 @@
-<?php 
+<?php
+    session_start();
 	include '../db_connect.php';
-	$query = "SELECT * FROM s_chat_messages ORDER BY id"; 
+    $id_kontrata=$_SESSION['id_kontrata'];
+	$query = "SELECT * FROM s_chat_messages WHERE `id_kontrata`='$id_kontrata' ORDER BY koha";
 	$run = $link->query($query);
 	while($row = $run->fetch_array()) : 
 ?> 

@@ -7,6 +7,9 @@ if($_SESSION==NULL){
 }
 if($_SESSION['logged']=='user'){
     $pid = $_SESSION['pid'];
+    $_SESSION['id_kontrata']=$_GET['id'];
+    $id_kontrata1=$_GET['id'];
+
     include("getdata.php");
 }
 else{
@@ -24,11 +27,12 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icon Albania</title>
     <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="style.css" media="all" />
+    <link rel="stylesheet" href="chatStyle.css" media="all" />
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/local1.css" />
-    <link rel="stylesheet" href="style.css" media="all" />
-    <link rel="stylesheet" href="chatStyle.css" media="all" />
+
 
     <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
@@ -69,6 +73,7 @@ else{
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
+                    <li><a href="draft.php"><i class="fa fa-bookmark-o"></i> Draft</a></li>
                     <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
 
                 </ul>
@@ -172,6 +177,7 @@ else{
         <div class="row"  >
             <div class="col-lg-12" >
                 <img src="icon.png">
+
             </div>
         </div>
 
@@ -179,6 +185,30 @@ else{
         <div id="page-wrapper">
 
             <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="row">
+                        <h3 class="text-muted">Modifica stato</h3>
+                        <form method="post" style="margin-top: 10%; margin-left: 2%" class="text-primary">
+                            <div class="form-group col-lg-6">
+                                <label>Scegli Stato</label>
+                                <select  class="form-control" name="modifica"  >
+                                    <option value="ko" disabled selected>KO</option>
+                                    <option value="recuperato">RECUPERATO</option>
+                                </select>
+
+                            </div>
+
+
+                </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <button type="submit" class="btn btn-primary"  name="modifica_stato">Modifica</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="col-lg-8">
             <div class="chat_window" id="chat_window">
                 <div class="top_menu">
                     <div class="buttons">
@@ -192,42 +222,56 @@ else{
 
                         </div>
                     </div>
-                    <div class="title">Chat</div>
+                    <div class="title">Note</div>
                 </div>
                 <ul class="messages" id="chat_box1">
 
                 </ul>
                 <div class="bottom_wrapper clearfix">
                     <div class="message_input_wrapper">
-                        <form method="post" action="index.php">
-                            <input class="message_input" placeholder="Type your message here..."  type="text" name="enter_message"/>
+                        <form method="post" >
+                            <input class="message_input" placeholder="Scrivi le tue note qui..."  type="text" name="enter_message"/>
                     </div>
                     <div class="send_message"
                     <div class="icon">
-                        <div class="text"><input type="submit"  name="submit" value="Send!" /> </div>
+                        <div class="text"><input type="submit"  name="send" value="Manda!" /> </div>
                     </div>
                 </div>
 
                 </form>
             </div>
-            <?php
+                </div>
 
-            if(isset($_POST['submit'])){
-
-                $msg = $_POST['enter_message'];
-                $query = "INSERT INTO `s_chat_messages` (`id`, `user`, `message`, `koha`) VALUES (NULL, '$emer', '$msg', CURRENT_TIMESTAMP)";
-                $run = $link->query($query);
-                echo "<script> location.href='index.php'; </script>";
-            }
-            ?>
 
             </div>
         </div>
 
 
 
-	
-	
+
+        <?php
+
+        if(isset($_POST['send'])){
+
+            $msg = $_POST['enter_message'];
+            $query = mysqli_query($link,"INSERT INTO `s_chat_messages` (`id`, `user`, `message`, `koha`, `id_kontrata`) VALUES (NULL, '$emer', '$msg', CURRENT_TIMESTAMP, '$id_kontrata1')");
+            echo "<script> location.href='index.php?id=".$id_kontrata1."';</script>";
+        }
+
+
+        ?>
+        <?php
+        if(isset($_POST['modifica_stato'])){
+            $stato1=$_POST['modifica'];
+
+            $query1=mysqli_query($link,"UPDATE `kliente` SET `status` = '$stato1' WHERE `kliente`.`id` = $id_kontrata1");
+            echo '<script language="javascript">';
+            echo 'alert("Lo stato e stato modificato \n")';
+            echo '</script>';
+            echo "<script> location.href='index.php?id=".$id_kontrata1."';</script>";
+        }
+        ?>
+
 
 </body>
 </html>
