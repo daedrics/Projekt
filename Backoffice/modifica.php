@@ -96,7 +96,7 @@ $emri_oper=$rresht["emer"];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">CRM</a>
+            <a class="navbar-brand" href="home.php">CRM</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul id="active" class="nav navbar-nav side-nav">
@@ -108,7 +108,7 @@ $emri_oper=$rresht["emer"];
             <ul class="nav navbar-nav navbar-right navbar-user">
 
                 <li class="dropdown user-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
+                    <a  style="color: white" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         
                         <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-gear"></i> Cambia Password</a></li>
@@ -378,7 +378,7 @@ $emri_oper=$rresht["emer"];
                 </div>
             </div>
             <button type="submit" name="aggiungi" class="btn btn-primary">Modifica Contratto</button>
-			 <button type="submit" name="elimina" class="btn btn-primary">Elimina Contratto</button>
+			 <button type="submit" name="elimina" class="btn btn-danger">Elimina Contratto</button>
 
 
         </form>
