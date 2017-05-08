@@ -202,20 +202,20 @@ while ($r=mysqli_fetch_assoc($sql)){
                 echo '<script language="javascript">';
                 echo 'alert("Il password e stato cambiato \n")';
                 echo '</script>';
-                echo "<script> location.href='#'; </script>";
+                echo "<script> location.href='home.php'; </script>";
             }
             else{
                 echo '<script language="javascript">';
                 echo 'alert("Il nuovo password non e confermato \n")';
                 echo '</script>';
-                echo "<script> location.href='#'; </script>";
+                echo "<script> location.href='home.php'; </script>";
             }
         }
         else{
             echo '<script language="javascript">';
             echo 'alert("Il vecchio password non e correto \n")';
             echo '</script>';
-            echo "<script> location.href='#'; </script>";
+            echo "<script> location.href='home.php'; </script>";
         }
     }
 
@@ -338,7 +338,7 @@ if(isset($_POST['modifica'])){
     echo '<script language="javascript">';
     echo 'alert("Il password e stato modificato. \n")';
     echo '</script>';
-    echo "<script> location.href='#'; </script>";
+    echo "<script> location.href='home.php'; </script>";
 }
 ?>
 
@@ -356,7 +356,7 @@ if(isset($_POST['registra'])){
     echo '<script language="javascript">';
     echo 'alert("L\'operatore e stato registrato. \n")';
     echo '</script>';
-    echo "<script> location.href='#'; </script>";
+    echo "<script> location.href='home.php'; </script>";
 	
 	
 }

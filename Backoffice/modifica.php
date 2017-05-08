@@ -184,20 +184,20 @@ $emri_oper=$rresht["emer"];
                 echo '<script language="javascript">';
                 echo 'alert("Il password e stato cambiato \n")';
                 echo '</script>';
-                echo "<script> location.href='#'; </script>";
+                echo "<script> location.href='modifica.php'; </script>";
             }
             else{
                 echo '<script language="javascript">';
                 echo 'alert("Il nuovo password non e confermato \n")';
                 echo '</script>';
-                echo "<script> location.href='#'; </script>";
+                echo "<script> location.href='modifica.php'; </script>";
             }
         }
         else{
             echo '<script language="javascript">';
             echo 'alert("Il vecchio password non e correto \n")';
             echo '</script>';
-            echo "<script> location.href='#'; </script>";
+            echo "<script> location.href='modifica.php'; </script>";
         }
     }
 
@@ -510,7 +510,7 @@ DELETE FROM `kliente`  WHERE `kliente`.`id` = '$id_kontrata'
 
 
     echo '<script language="javascript">';
-    echo 'alert("Il contratto e stato elemina \n")';
+    echo 'alert("Il contratto e stato eleminato \n")';
     echo '</script>';
     echo "<script> location.href='arkiv.php'; </script>";
 

@@ -239,20 +239,20 @@ if(isset($_POST['cerca'])){
                     echo '<script language="javascript">';
                     echo 'alert("Il password e stato cambiato \n")';
                     echo '</script>';
-                    echo "<script> location.href='#'; </script>";
+                    echo "<script> location.href='arkiv.php'; </script>";
                 }
                 else{
                     echo '<script language="javascript">';
                     echo 'alert("Il nuovo password non e confermato \n")';
                     echo '</script>';
-                    echo "<script> location.href='#'; </script>";
+                    echo "<script> location.href='arkiv.php'; </script>";
                 }
             }
             else{
                 echo '<script language="javascript">';
                 echo 'alert("Il vecchio password non e correto \n")';
                 echo '</script>';
-                echo "<script> location.href='#'; </script>";
+                echo "<script> location.href='arkiv.php'; </script>";
             }
         }
 
