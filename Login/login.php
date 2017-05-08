@@ -46,7 +46,7 @@ if(isset($_POST['login_submit'])) {
         $pid=$r[0];
          $_SESSION['user']=$r[3];
         $_SESSION['pid'] = $pid;
-         $_SESSION['logged']='user';
+         $_SESSION['logged']='backoffice';
         header("Location: ../Backoffice/arkiv.php");
     }
 	
