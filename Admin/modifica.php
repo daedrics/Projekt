@@ -70,7 +70,7 @@ $emri_oper=$rresht["emer"];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Dark Admin</title>
+    <title>Icon Albania</title>
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
@@ -96,7 +96,7 @@ $emri_oper=$rresht["emer"];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">CRM</a>
+            <a class="navbar-brand" href="home.php">CRM</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul id="active" class="nav navbar-nav side-nav">

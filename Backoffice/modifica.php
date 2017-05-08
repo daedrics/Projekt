@@ -70,7 +70,7 @@ $emri_oper=$rresht["emer"];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Dark Admin</title>
+    <title>Icon Albania</title>
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
@@ -96,7 +96,7 @@ $emri_oper=$rresht["emer"];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.php">CRM</a>
+            <a class="navbar-brand" href="arkiv.php">CRM</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul id="active" class="nav navbar-nav side-nav">
@@ -176,11 +176,11 @@ $emri_oper=$rresht["emer"];
         $vechia_pass=$_POST['vechia_pass'];
         $nuovo_pass=$_POST['nuovo_pass'];
         $conf_pass=$_POST['conf_pass'];
-        $sql2=mysqli_query($link,"SELECT * FROM `admin` WHERE `password`='$vechia_pass' AND `id`='$pid'");
+        $sql2=mysqli_query($link,"SELECT * FROM `backoffice` WHERE `password`='$vechia_pass' AND `id`='$pid'");
         $r1=mysqli_num_rows($sql2);
         if($r1!=0){
             if($nuovo_pass==$conf_pass){
-                $sql3=mysqli_query($link,"UPDATE `admin` SET `password` = '$nuovo_pass' WHERE `admin`.`id` = '$pid'");
+                $sql3=mysqli_query($link,"UPDATE `backoffice` SET `password` = '$nuovo_pass' WHERE `backoffice`.`id` = '$pid'");
                 echo '<script language="javascript">';
                 echo 'alert("Il password e stato cambiato \n")';
                 echo '</script>';
