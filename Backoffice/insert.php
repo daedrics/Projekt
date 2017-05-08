@@ -53,7 +53,7 @@ else{
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
-                    <li ><a href="home.php"><i class="fa fa-home"></i> Home</a></li>
+                   
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
                     <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
 
@@ -63,7 +63,7 @@ else{
                     <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="home.php"><i class="fa fa-user"></i> Home</a></li>
+                           
                             <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-gear"></i> Cambia Password</a></li>
                             <li class="divider"></li>
                             <li><a href="../logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>

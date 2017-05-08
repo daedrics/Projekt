@@ -447,16 +447,16 @@ echo '
             i;
         for (i = 0; i < data.length; i++) {
             var item = data[i];
-            if (item.Status == 'ok'|| item.Status == 'OK') {
+            if (item.Status == 'ok'|| item.Status == 'OK' || item.Status == 'Ok') {
                 $(rows[i].cells[8]).addClass("jeshile");
             }
-            if (item.Status =='ko' || item.Status =='KO' ) {
+            if (item.Status =='ko' || item.Status =='KO' || item.Status == 'Ko') {
                 $(rows[i].cells[8]).addClass("kuqe");
             }
-            if (item.Status =='wip' || item.Status =='WIP' ) {
+            if (item.Status =='wip' || item.Status =='WIP' || item.Status == 'Wip' ) {
                 $(rows[i].cells[8]).addClass("bardhe");
             }
-			if (item.Status =='recuperato' || item.Status =='RECUPERATO') {
+			if (item.Status =='recuperato' || item.Status =='RECUPERATO' || item.Status == 'Recuperato') {
                 $(rows[i].cells[8]).addClass("verdhe");
             }
         }

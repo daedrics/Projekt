@@ -156,7 +156,7 @@ echo '
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
-                    <li ><a href="home.php"><i class="fa fa-home"></i> Home</a></li>
+                   
                     <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
                     <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
                 </ul>
@@ -165,7 +165,7 @@ echo '
                     <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white"><i class="fa fa-user"></i> <?php echo $emer.' '.$mbiemer?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="home.php"><i class="fa fa-user"></i> Home</a></li>
+                          
                             <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-gear"></i> Cambia Password</a></li>
                             <li class="divider"></li>
                             <li><a href="../logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
@@ -447,16 +447,16 @@ echo '
             i;
         for (i = 0; i < data.length; i++) {
             var item = data[i];
-            if (item.Status == 'ok'|| item.Status == 'OK') {
+            if (item.Status == 'ok'|| item.Status == 'OK' || item.Status == 'Ok') {
                 $(rows[i].cells[8]).addClass("jeshile");
             }
-            if (item.Status =='ko' || item.Status =='KO' ) {
+            if (item.Status =='ko' || item.Status =='KO' || item.Status == 'Ko' ) {
                 $(rows[i].cells[8]).addClass("kuqe");
             }
-            if (item.Status =='wip' || item.Status =='WIP' ) {
+            if (item.Status =='wip' || item.Status =='WIP' || item.Status == 'Wip') {
                 $(rows[i].cells[8]).addClass("bardhe");
             }
-			if (item.Status =='recuperato' || item.Status =='RECUPERATO') {
+			if (item.Status =='recuperato' || item.Status =='RECUPERATO' || item.Status == 'Recuperato') {
                 $(rows[i].cells[8]).addClass("verdhe");
             }
         }
