@@ -365,7 +365,19 @@ if(isset($_POST['cerca'])){
                     { field: "codicefiscale", title: "CODICE FISCALE" },
                     { field: "telfisso", title: "TEL FISSO" },
                     { field: "rcell", title: "R.CELL" },
-                    { field: "motivacione", title: "MOTIVAZIONE" },
+                    {field:"motivacione",
+                        width: "150px",
+                        title: "Motivazione",
+                        columnTemplate: function (cell, item) {
+                            var transport = item["Id"];
+                            var text= item["motivacione"];
+                            $('<button data-toggle="modal" data-target="#2Modal" value="in Lavoracione" style=" height: 25px;" id="cell">Leggi Motivazione</button>')
+                                .appendTo(cell).click(function(){
+                                $("#text_leggi").text(text);
+                            });
+                                
+                        }
+                    },
                     { field: "Status", title: "Stato" },
                     {
                         width: "80px",
@@ -484,6 +496,26 @@ if(isset($_POST['cerca'])){
     }
     
 </style>
+ <div class="modal fade" id="2Modal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   
+                </div>
+                <div class="modal-body">
+                   <p id="text_leggi"></p>
+					
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <script type="text/javascript">
         var _delay = 3000;
         function checkLoginStatus(){
