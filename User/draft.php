@@ -151,7 +151,7 @@ if(isset($_POST['cerca'])){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">CRM</a>
+            <a class="navbar-brand" href="arkiv.php">CRM</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul id="active" class="nav navbar-nav side-nav">
