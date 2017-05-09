@@ -372,14 +372,18 @@ echo '
 				 { field: "codicefiscale", title: "CODICE FISCALE" },
 				  { field: "telfisso", title: "TEL FISSO" },
 			     { field: "rcell", title: "R.CELL" },
-				
-					                     {
+
+
+                    {field:"motivacione",
                         width: "150px",
-                        title: "Motivacione",
+                        title: "Motivazione",
                         columnTemplate: function (cell, item) {
                             var transport = item["Id"];
+                            var text= item["motivacione"];
                             $('<button data-toggle="modal" data-target="#2Modal" value="in Lavoracione" style=" height: 25px;" id="cell">Leggi Motivazione</button>')
-                                .appendTo(cell)
+                                .appendTo(cell).click(function(){
+                                $("#text_leggi").text(text);
+                            });
                                 
                         }
                     },
@@ -405,8 +409,8 @@ echo '
 
                 ]
             });
-			
-			
+
+
 			
 			        var dataSource = $("#shieldui-grid1").swidget().dataSource,
             input = $("#filterbox input"),
@@ -512,7 +516,7 @@ echo '
                    
                 </div>
                 <div class="modal-body">
-                   
+                   <p id="text_leggi"></p>
 					
                 </div>
                 <div class="modal-footer">
