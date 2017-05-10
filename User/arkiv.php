@@ -46,8 +46,10 @@ else{
 <?php
 include ("../db_connect.php");
 $shieldUI=1;
+$pageSize=1;
 if(isset($_POST['cerca'])){
     $shieldUI=2;
+    $pageSize=2;
     $dat_f=$_POST['d_in'];
     $dat_mb=$_POST['d_out'];
 
@@ -89,9 +91,14 @@ if(isset($_POST['cerca'])){
                 },
                 rowHover: false,
                 
-					paging:5
+					paging: {
+            pageSize: 5
+            },
 				
-            ,
+            
+            events: {
+                dataBound: dataBoundFunction
+            },
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
@@ -100,7 +107,19 @@ if(isset($_POST['cerca'])){
                  { field: "codicefiscale", title: "CODICE FISCALE" },
 				  { field: "telfisso", title: "TEL FISSO" },
 			     { field: "rcell", title: "R.CELL" },
-				 { field: "motivacione", title: "MOTIVAZIONE" },
+				 {field:"motivacione",
+                        width: "150px",
+                        title: "Motivazione",
+                        columnTemplate: function (cell, item) {
+                            var transport = item["Id"];
+                            var text= item["motivacione"];
+                            $(\'<button data-toggle="modal" data-target="#2Modal" value="in Lavoracione" style=" height: 25px;" id="cell">Leggi Motivazione</button>\')
+                                .appendTo(cell).click(function(){
+                                $("#text_leggi").text(text);
+                            });
+                                
+                        }
+                    },
                  { field: "Status", title: "Stato" },
                 ]
             });
@@ -134,6 +153,11 @@ if(isset($_POST['cerca'])){
             }, 300);
         });
          });
+          function setPage2() {
+        var x=document.getElementById(\'elementi\').value;
+        $("#shieldui-grid2").swidget().pager.pageSize(x); // Sets the page size to 4
+        $("#shieldui-grid2").refresh();
+    }
     
     </script>';
 }
@@ -303,7 +327,7 @@ if(isset($_POST['cerca'])){
                 <div class="col-lg-1"style="padding-top:25px"><label style="font-size:18px">Visualizza</label></div>
                 <div style="padding-top:23px"class="col-lg-1 ">
 
-                    <select  class="form-control" onchange="setPage();" id="elementi">
+                    <select  class="form-control" onchange="setPage<?php echo $pageSize;?>();" id="elementi">
 
                         <option value="5" selected>5</option>
                         <option value="10">10</option>
@@ -438,7 +462,7 @@ if(isset($_POST['cerca'])){
         });
 
 
-    function setPage() {
+    function setPage1() {
         var x=document.getElementById('elementi').value;
         $("#shieldui-grid1").swidget().pager.pageSize(x); // Sets the page size to 4
         $("#shieldui-grid1").refresh();
