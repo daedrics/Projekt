@@ -358,7 +358,7 @@ if(isset($_POST['cerca'])){
                 dataBound: dataBoundFunction
             },
                 columns: [
-                { field: "Id", width: "170px", title: "Id" },
+                { field: "Id", width: "60px", title: "Id" },
                 { field: "Data", title: "Data" },
                 { field: "Emer", title: "Nome" },
                 { field: "Mbiemer", title: "Cognome" },
@@ -503,7 +503,7 @@ if(isset($_POST['cerca'])){
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                   
+                    <h4 class="modal-title">Motivazione</h4>
                 </div>
                 <div class="modal-body">
                    <p id="text_leggi"></p>

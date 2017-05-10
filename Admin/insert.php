@@ -389,7 +389,7 @@ else{
         $info[27] = $_POST['motivazione'];
         $info[28] = $_POST['note'];
         $today = date("Y-m-d ");
-
+        $info[26]=strtoupper($info[26]);
 
         //shto ne databaze
         $query = mysqli_query($link,"
