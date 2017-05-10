@@ -11,7 +11,7 @@ $username=$row[3];
 $pass=$row[4];
 
 
-$kontrata= mysqli_query($link,"SELECT * FROM `kliente`");
+$kontrata= mysqli_query($link,"SELECT * FROM `kliente` ORDER BY status='recuperato' DESC");
 $wip=0;
 $tot=0;
 $ko=0;

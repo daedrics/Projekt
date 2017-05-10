@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8c1a840-8f7d-4699-bd58-234586a55573" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User/arkiv.php" afterPath="$PROJECT_DIR$/User/arkiv.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User/draft.php" afterPath="$PROJECT_DIR$/User/draft.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User/get_draft.php" afterPath="$PROJECT_DIR$/User/get_draft.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/getdata.php" afterPath="$PROJECT_DIR$/Admin/getdata.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/insert.php" afterPath="$PROJECT_DIR$/Admin/insert.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,67 +29,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="arkiv.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/User/arkiv.php">
+      <file leaf-file-name="insert.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Admin/insert.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="505" column="55" lean-forward="false" selection-start-line="505" selection-start-column="55" selection-end-line="505" selection-end-column="55" />
+            <state relative-caret-position="418">
+              <caret line="391" column="40" lean-forward="false" selection-start-line="391" selection-start-column="40" selection-end-line="391" selection-end-column="40" />
               <folding>
-                <marker date="1494418752766" expanded="true" signature="1806:1878" ph="SELECT * FRO... kliente" />
-                <marker date="1494418752766" expanded="true" signature="2381:2417" ph="{...}" />
-                <marker date="1494418752766" expanded="true" signature="9509:9581" ph="SELECT * FRO... operator" />
-                <marker date="1494418752766" expanded="true" signature="9740:9819" ph="UPDATE `oper... " />
-                <marker date="1494418752766" expanded="true" signature="15381:15395" ph="..." />
-                <marker date="1494418752766" expanded="true" signature="16147:16163" ph="..." />
-                <marker date="1494418752766" expanded="true" signature="16193:16219" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="draft.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/User/draft.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="319" column="29" lean-forward="true" selection-start-line="319" selection-start-column="29" selection-end-line="319" selection-end-column="29" />
-              <folding>
-                <marker date="1494418512247" expanded="true" signature="1806:1876" ph="SELECT * FRO... draft" />
-                <marker date="1494418512247" expanded="true" signature="2379:2415" ph="{...}" />
-                <marker date="1494418512247" expanded="true" signature="9190:9262" ph="SELECT * FRO... operator" />
-                <marker date="1494418512247" expanded="true" signature="9405:9484" ph="UPDATE `oper... " />
-                <marker date="1494418512247" expanded="true" signature="13689:13715" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_draft.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/User/get_draft.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding>
-                <marker date="1494418333010" expanded="true" signature="69:118" ph="SELECT * FRO... draft" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modifica.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/User/modifica.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1687">
-              <caret line="206" column="88" lean-forward="false" selection-start-line="206" selection-start-column="88" selection-end-line="206" selection-end-column="88" />
-              <folding>
-                <marker date="1494418216776" expanded="true" signature="630:677" ph="SELECT * FRO... draft" />
-                <marker date="1494418216776" expanded="true" signature="1868:1917" ph="SELECT emer operator" />
-                <marker date="1494418216776" expanded="true" signature="7372:7444" ph="SELECT * FRO... operator" />
-                <marker date="1494418216776" expanded="true" signature="7587:7663" ph="UPDATE `oper... " />
-                <marker date="1494418216776" expanded="true" signature="19908:20744" ph="UPDATE `draf... " />
-                <marker date="1494418216776" expanded="true" signature="21054:21114" ph="DELETE FROM " />
-                <marker date="1494418216776" expanded="true" signature="21431:21478" ph="SELECT * FRO... draft" />
-                <marker date="1494418216776" expanded="true" signature="22802:23692" ph="INSERT INTO `kliente`... " />
-                <marker date="1494418216776" expanded="true" signature="23735:23791" ph="DELETE FROM " />
+                <marker date="1494419998936" expanded="true" signature="6148:6217" ph="SELECT * FRO... admin" />
+                <marker date="1494419998936" expanded="true" signature="6376:6449" ph="UPDATE `admi... " />
+                <marker date="1494419998936" expanded="true" signature="19662:20522" ph="INSERT INTO `kliente`... " />
               </folding>
             </state>
           </provider>
@@ -148,7 +94,6 @@
         <option value="$PROJECT_DIR$/Admin/checkStatus.php" />
         <option value="$PROJECT_DIR$/template/forms.html" />
         <option value="$PROJECT_DIR$/checkStatus.php" />
-        <option value="$PROJECT_DIR$/Admin/getdata.php" />
         <option value="$PROJECT_DIR$/Admin/excel.php" />
         <option value="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/Login/index.css" />
@@ -159,7 +104,6 @@
         <option value="$PROJECT_DIR$/Login/login.php" />
         <option value="$PROJECT_DIR$/Admin/home.php" />
         <option value="$PROJECT_DIR$/Admin/arkiv.php" />
-        <option value="$PROJECT_DIR$/Admin/insert.php" />
         <option value="$PROJECT_DIR$/User/insert.php" />
         <option value="$PROJECT_DIR$/Login/index.php" />
         <option value="$PROJECT_DIR$/User/chatStyle.css" />
@@ -173,6 +117,8 @@
         <option value="$PROJECT_DIR$/User/get_draft.php" />
         <option value="$PROJECT_DIR$/User/draft.php" />
         <option value="$PROJECT_DIR$/User/arkiv.php" />
+        <option value="$PROJECT_DIR$/Admin/getdata.php" />
+        <option value="$PROJECT_DIR$/Admin/insert.php" />
       </list>
     </option>
   </component>
@@ -214,20 +160,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Projekt" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projekt" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -347,7 +279,7 @@
       <workItem from="1492469893280" duration="4566000" />
       <workItem from="1492869411223" duration="17847000" />
       <workItem from="1493636676515" duration="19745000" />
-      <workItem from="1493732177628" duration="87438000" />
+      <workItem from="1493732177628" duration="87784000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1492460531272</created>
@@ -367,7 +299,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168818000" />
+    <option name="totallyTimeSpent" value="169164000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -494,8 +426,9 @@
         <state relative-caret-position="85">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
           <folding>
-            <marker date="1494174393209" expanded="true" signature="67:108" ph="SELECT * FRO... admin" />
-            <marker date="1494174393209" expanded="true" signature="257:280" ph="SELECT * FRO... kliente" />
+            <marker date="1494419762910" expanded="true" signature="67:108" ph="SELECT * FRO... admin" />
+            <marker date="1494419762910" expanded="true" signature="257:280" ph="SELECT * FRO... kliente" />
+            <marker date="1494419762910" expanded="true" signature="257:314" ph="SELECT * FRO... kliente" />
           </folding>
         </state>
       </provider>
@@ -621,17 +554,6 @@
             <marker date="1493975044474" expanded="true" signature="2984:3738" ph="..." />
             <marker date="1493975044474" expanded="true" signature="2991:3738" ph="..." />
             <marker date="1493975044474" expanded="true" signature="3834:5077" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/getdata.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding>
-            <marker date="1494174393209" expanded="true" signature="67:108" ph="SELECT * FRO... admin" />
-            <marker date="1494174393209" expanded="true" signature="257:280" ph="SELECT * FRO... kliente" />
           </folding>
         </state>
       </provider>
@@ -830,18 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/insert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="384" column="42" lean-forward="false" selection-start-line="384" selection-start-column="42" selection-end-line="384" selection-end-column="42" />
-          <folding>
-            <marker date="1494264707370" expanded="true" signature="6148:6217" ph="SELECT * FRO... admin" />
-            <marker date="1494264707370" expanded="true" signature="6376:6449" ph="UPDATE `admi... " />
-            <marker date="1494264707370" expanded="true" signature="19622:20482" ph="INSERT INTO `kliente`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin/arkiv.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -930,6 +840,30 @@
             <marker date="1494418752766" expanded="true" signature="15381:15395" ph="..." />
             <marker date="1494418752766" expanded="true" signature="16147:16163" ph="..." />
             <marker date="1494418752766" expanded="true" signature="16193:16219" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/getdata.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="88" lean-forward="false" selection-start-line="13" selection-start-column="88" selection-end-line="13" selection-end-column="88" />
+          <folding>
+            <marker date="1494419762910" expanded="true" signature="67:108" ph="SELECT * FRO... admin" />
+            <marker date="1494419762910" expanded="true" signature="257:280" ph="SELECT * FRO... kliente" />
+            <marker date="1494419762910" expanded="true" signature="257:314" ph="SELECT * FRO... kliente" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/insert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="391" column="40" lean-forward="false" selection-start-line="391" selection-start-column="40" selection-end-line="391" selection-end-column="40" />
+          <folding>
+            <marker date="1494419998936" expanded="true" signature="6148:6217" ph="SELECT * FRO... admin" />
+            <marker date="1494419998936" expanded="true" signature="6376:6449" ph="UPDATE `admi... " />
+            <marker date="1494419998936" expanded="true" signature="19662:20522" ph="INSERT INTO `kliente`... " />
           </folding>
         </state>
       </provider>
