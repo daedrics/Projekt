@@ -9,6 +9,7 @@ if($_SESSION['logged']=='backoffice'){
     $pid = $_SESSION['pid'];
     include("getdata.php");
     $id_kontrata=$_GET['id'];
+    $_SESSION['id_kontrata']=$_GET['id'];
 }
 else{
     echo '<script language="javascript">';
@@ -72,6 +73,8 @@ $emri_oper=$rresht["emer"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icon Albania</title>
     <link rel="icon" href="icon.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="chatStyle.css" />
     <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/local1.css" />
@@ -85,6 +88,30 @@ $emri_oper=$rresht["emer"];
 
     <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
+    <script>
+        function chat_ajax(){
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function() {
+                if(req.readyState == 4 && req.status == 200){
+                    document.getElementById('chat_box1').innerHTML = req.responseText;
+                }
+            }
+            req.open('GET', 'chat1.php', true);
+            req.send();
+        }
+        setInterval(function(){chat_ajax()}, 1000) ;
+
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#buton1").click(function(){
+                $("#chat_window").toggle();
+                $('html, body').animate({
+                    scrollTop: $("#chat_window").offset().top
+                }, 2000);
+            });
+        });
+    </script>
 </head>
 <body style="background:white ">
 <div id="wrapper" >
@@ -212,6 +239,7 @@ $emri_oper=$rresht["emer"];
 
     <div id="page-wrapper">
         <h3 class="text-muted" style="padding-bottom: 20px">Raccolta Dati (modifica contratto)</h3>
+        <div class="row">
         <form method="post" class="text-primary" >
             <div class="row">
                 <div class="form-group col-lg-1">
@@ -382,6 +410,60 @@ $emri_oper=$rresht["emer"];
 
 
         </form>
+        </div>
+        <div class="row" style="margin-top: 2%">
+            <button id="buton1" class="btn btn-success">Apri Note</button>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <span></span>
+            </div>
+            <div class="col-lg-7">
+                <div class="chat_window" id="chat_window" style="display: none">
+                    <div class="top_menu">
+                        <div class="buttons">
+                            <div class="button close">
+
+                            </div>
+                            <div class="button minimize">
+
+                            </div>
+                            <div class="button maximize">
+
+                            </div>
+                        </div>
+                        <div class="title">Note</div>
+                    </div>
+                    <ul class="messages" id="chat_box1">
+
+                    </ul>
+                    <div class="bottom_wrapper clearfix">
+                        <div class="message_input_wrapper">
+                            <form method="post" >
+                                <input class="message_input" placeholder="Scrivi le tue note qui..."  type="text" name="enter_message"/>
+                        </div>
+                        <div class="send_message"
+                        <div class="icon">
+                            <div class="text"><input type="submit"  name="send" value="Manda!" /> </div>
+                        </div>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <?php
+
+        if(isset($_POST['send'])){
+
+            $msg = $_POST['enter_message'];
+            $query = mysqli_query($link,"INSERT INTO `s_chat_messages` (`id`, `user`, `message`, `koha`, `id_kontrata`) VALUES (NULL, '$emer', '$msg', CURRENT_TIMESTAMP, '$id_kontrata')");
+            echo "<script> location.href='modifica.php?id=".$id_kontrata."';</script>";
+        }
+
+
+        ?>
+
 
     </div>
 
