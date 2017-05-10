@@ -51,7 +51,7 @@ if(isset($_POST['cerca'])){
     $dat_f=$_POST['d_in'];
     $dat_mb=$_POST['d_out'];
 
-    $query=mysqli_query($link,"SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND `data` <= '$dat_mb'");
+    $query=mysqli_query($link,"SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND `data` <= '$dat_mb' AND `#id_operator`='$pid'");
 
     $i=0;
     while ($r=mysqli_fetch_assoc($query)){
@@ -74,7 +74,7 @@ if(isset($_POST['cerca'])){
     for($i=0;$i<sizeof($id_kl);$i++){
         echo '{ Id: '.$id_kl[$i].', Data: "'.$datal[$i].'", Emer: "'.$k_emerl[$i].'", Mbiemer: "'.$k_mbiemerl[$i].'",codicefiscale : "'.$codicefiscalel[$i].'",telfisso:"'.$telfissol[$i].'",rcell:"'.$rcelll[$i].'",
 				motivacione :"'.$motivacionel[$i].'", Status: "'.$statusl[$i].'"}';
-        if($i!=sizeof($id_k)-1){
+        if($i!=sizeof($id_kl)-1){
             echo ',';
         }
     }
