@@ -121,6 +121,27 @@ if(isset($_POST['cerca'])){
                         }
                     },
                  { field: "Status", title: "Stato" },
+                 {
+                        width: "80px",
+                        title: "Modifica",
+                        columnTemplate: function (cell, item) {
+                            var transport = item["Id"];
+                            var stato = item["Status"];
+                            if (stato == \'KO\' || stato == \'ko\' || stato == \'Ko\' || stato == \'recuperato\'){
+
+                                $(\'<button style="margin-left: 10%" ><img src="edit.png" style="width: 40px; height: 25px;"/></button>\')
+                                    .appendTo(cell)
+                                    .shieldButton({
+                                        events: {
+                                            click: function () {
+                                                location.href = \'index.php?id=\' + transport + \'\';
+                                            }
+                                        }
+                                    });
+
+                            }
+                        }
+                    },
                 ]
             });
              var dataSource = $("#shieldui-grid2").swidget().dataSource,
@@ -409,7 +430,7 @@ if(isset($_POST['cerca'])){
                         columnTemplate: function (cell, item) {
                             var transport = item["Id"];
                             var stato = item["Status"];
-                            if (stato == 'KO' || stato == 'ko' || stato == 'Ko'){
+                            if (stato == 'KO' || stato == 'ko' || stato == 'Ko' || stato == 'recuperato'){
 
                                 $('<button style="margin-left: 10%" ><img src="edit.png" style="width: 40px; height: 25px;"/></button>')
                                     .appendTo(cell)
