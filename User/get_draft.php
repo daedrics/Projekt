@@ -6,7 +6,7 @@ $kontrata= mysqli_query($link,"SELECT * FROM `draft` WHERE `#id_Operator`='$pid'
 
 $j=0;
 
-$wipi=0; $toti=0;$koi=0;$oki=0;$pritjei=0;$wip=0;
+$id_ki=NULL;
 while ($r=mysqli_fetch_assoc($kontrata)){
     $id_ki[$j]=$r['id'];
     $datai[$j]=$r['data'];

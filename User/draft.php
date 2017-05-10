@@ -317,13 +317,14 @@ if(isset($_POST['cerca'])){
         var traffic = [
             <?php
             include ('get_draft.php');
+            if($id_ki!=NULL){
             for($i=0;$i<sizeof($id_ki);$i++){
                 echo '{ Id: '.$id_ki[$i].', Data: "'.$datai[$i].'", Emer: "'.$k_emeri[$i].'", Mbiemer: "'.$k_mbiemeri[$i].'",codicefiscale : "'.$codicefiscalei[$i].'",telfisso:"'.$telfissoi[$i].'",rcell:"'.$rcelli[$i].'",
 				motivacione :"'.$motivacionei[$i].'", Status: "'.$statusi[$i].'"}';
                 if($i!=sizeof($id_ki)-1){
                     echo ',';
                 }
-            }
+            }}
             ?>
         ];
         $("#shieldui-grid1").shieldGrid({
@@ -349,10 +350,10 @@ if(isset($_POST['cerca'])){
                 { field: "Status", title: "Stato" },
                 {
                     width: "110px",
-                    title: "Inserisci Contratto",
+                    title: "Modifica Contratto",
                     columnTemplate: function (cell, item) {
                         var transport = item["Id"];
-                        $('<form method="post"><input type="hidden" name="id" value="'+transport+'"><button name="insert" type="submit"><img src="insert.ico" style="width: 40px; height: 25px;"/></button></form>')
+                        $('<button><img src="edit.png" style="width: 40px; height: 25px;"/></button>')
                             .appendTo(cell)
                             .shieldButton({
                                 events: {
@@ -420,64 +421,6 @@ if(isset($_POST['cerca'])){
     }
     checkLoginStatus();
 </script>
-<?php
-include("../db_connect.php");
-if(isset($_POST['insert'])){
-    $id=$_POST['id'];
-    $kontrata1= mysqli_query($link,"SELECT * FROM `draft` WHERE `id`='$id'");
-    $row=mysqli_fetch_assoc($kontrata1);
-    $info1 = array('','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
-    $info1[1] =  $row["id"];
-    $info1[2] = $row["emer"];
-    $info1[3] = $row["mbiemer"];
-    $info1[4] = $row["data"];
-    $info1[5] = $row["status"];
-    $info1[6] = $row["gestore_tel"];
-    $info1[7] = $row["tipologia_cnt"];
-    $info1[8] = $row["app_cnt"];
-    $info1[9] = $row["numero_fisso"];
-    $info1[10] = $row["comune"];
-    $info1[11] = $row["provincia"];
-    $info1[12] = $row["frazione"];
-    $info1[13] = $row["cap"];
-    $info1[14] = $row["via"];
-    $info1[15] = $row["nr_civico"];
-    $info1[16] = $row["luogo_di_nascita"];
-    $info1[17] = $row["nr_documento"];
-    $info1[18] = $row["comune_emmissione"];
-    $info1[19] = $row["data_rilascio"];
-    $info1[20] = $row["data_scadenza"];
-    $info1[21] = $row["codice_fiscale"];
-    $info1[22] = $row["codice_migrazione"];
-    $info1[23] = $row["recapito_cell"];
-    $info1[24] = $row["operatore_cell"];
-    $info1[25] = $row["offerta_scelta"];
-    $info1[26] = $row["cell_off_tsm"];
-    $info1[27] = $row["iccid"];
-    $info1[28] = $row["codice_op"];
-    $info1[29]= $row["motivazione"];
-    $info1[30]=$row["note"];
-    $info1[31]=$row["#id_Operator"];
 
-    $query = mysqli_query($link,"
-INSERT INTO `kliente` (`id`, `data`, `emer`, `mbiemer`, `status`, `#id_Operator`, `gestore_tel`, `tipologia_cnt`, `app_cnt`, `numero_fisso`, `comune`, `provincia`, `cap`,
- `via`, `nr_civico`, `luogo_di_nascita`, `nr_documento`, `comune_emmissione`, `data_rilascio`, `data_scadenza`, `codice_fiscale`, `codice_migrazione`, 
- `recapito_cell`, `operatore_cell`, `offerta_scelta`, `cell_off_tsm`, `iccid`, `codice_op`, `motivazione`, `note`, `id_admin`, `frazione`, `id_backoffice`)
-  VALUES (NULL, '$info1[4]','$info1[2]','$info1[3]','$info1[5]','$info1[31]','$info1[6]','$info1[7]','$info1[8]','$info1[9]','$info1[10]','$info1[11]','$info1[13]','$info1[14]'
-  ,'$info1[15]','$info1[16]','$info1[17]','$info1[18]','$info1[19]','$info1[20]','$info1[21]','$info1[22]',
-  '$info1[23]','$info1[24]','$info1[25]','$info1[26]','$info1[27]','$info1[28]','$info1[29]','$info1[30]','' ,'$info1[12]','') ;");
-
-    for($i=1;$i<32;$i++){
-        echo $info1[$i]."  ";
-    }
-
-
-
-
-
-
-
-}
-?>
 </body>
 </html>
