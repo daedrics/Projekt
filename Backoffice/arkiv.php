@@ -58,8 +58,7 @@ if($dat_f==null){
 	else if ($dat_mb==null){
 		$query = mysqli_query($link, "SELECT * FROM `kliente` WHERE `data` >= '$dat_f'");
 	}
-	else if ($dat_f==null && $dat_mb==null)
-	{
+	else if ($dat_f==null && $dat_mb==null){
 		$query = mysqli_query($link, "SELECT * FROM `kliente`");
 	}
 	else{
@@ -132,6 +131,22 @@ echo '
                         }
                     },
                  { field: "Status", title: "Stato" },
+				  {
+                        width: "110px",
+                        title: "Modifica",
+                        columnTemplate: function (cell, item) {
+                            var transport = item["Id"];
+                            $(\'<button ><img src="edit.png" style="width: 40px; height: 25px;"/></button>\')
+                                .appendTo(cell)
+                                .shieldButton({
+                                    events: {
+                                        click: function () {
+                                            location.href=\'modifica.php?id=\'+transport+\'\';
+                                        }
+                                    }
+                                });
+                        }
+                    }
                 ]
             });
              var dataSource = $("#shieldui-grid2").swidget().dataSource,
