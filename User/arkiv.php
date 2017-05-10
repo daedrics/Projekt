@@ -496,7 +496,7 @@ if(isset($_POST['cerca'])){
     }
     
 </style>
- <div class="modal fade" id="2Modal" role="dialog">
+<div class="modal fade" id="2Modal" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
