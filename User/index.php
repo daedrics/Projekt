@@ -44,6 +44,8 @@ else{
     <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
     <script>
+
+
         function chat_ajax(){
             var req = new XMLHttpRequest();
             req.onreadystatechange = function() {
@@ -229,12 +231,12 @@ else{
                 </ul>
                 <div class="bottom_wrapper clearfix">
                     <div class="message_input_wrapper">
-                        <form method="post" >
-                            <input class="message_input" placeholder="Scrivi le tue note qui..."  type="text" name="enter_message"/>
+                        <form method="post" action="" id="myForm">
+                            <input class="message_input" id="message" placeholder="Scrivi le tue note qui..."  type="text" name="enter_message"/>
                     </div>
-                    <div class="send_message"
+                    <div class="send_message">
                     <div class="icon">
-                        <div class="text"><input type="submit"  name="send" value="Manda!" /> </div>
+                        <div class="text"><input type="submit"   name="send" value="Manda!" /> </div>
                     </div>
                 </div>
 
@@ -245,8 +247,6 @@ else{
 
             </div>
         </div>
-
-
 
 
         <?php
