@@ -52,19 +52,22 @@ if(isset($_POST['cerca'])) {
 	$setPage=2;
     $dat_f = $_POST['d_in'];
     $dat_mb = $_POST['d_out'];
-	if($dat_f==null){
-		$query = mysqli_query($link, "SELECT * FROM `kliente` WHERE  `data` <= '$dat_mb'");
-	}
-	else if ($dat_mb==null){
+	 if ($dat_mb==null){
 		$query = mysqli_query($link, "SELECT * FROM `kliente` WHERE `data` >= '$dat_f'");
 	}
-	else if ($dat_f==null && $dat_mb==null)
-	{
-		$query = mysqli_query($link, "SELECT * FROM `kliente`");
+	else if ($dat_f==null ){
+		if($dat_mb==null){
+			
+		$query = mysqli_query($link, "SELECT * FROM `kliente`WHERE `data` >= '01-01-1990' AND `data` <= '01-01-3000'");
+		}
+		else{
+			$query = mysqli_query($link, "SELECT * FROM `kliente` WHERE  `data` <= '$dat_mb'");
+		}
 	}
 	else{
     $query = mysqli_query($link, "SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND `data` <= '$dat_mb'");
 	}
+
     $i = 0;
     while ($r = mysqli_fetch_assoc($query)) {
         $id_kl[$i] = $r['id'];
