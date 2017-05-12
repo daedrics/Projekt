@@ -137,8 +137,8 @@ while ($r=mysqli_fetch_assoc($sql)){
                 </li>
                 <li class="divider-vertical"></li>
                 <li>
-                    <form class="navbar-search">
-                        <input type="text" id="filterbox" placeholder="Search" class="form-control">
+                    <form class="navbar-search"><div id="filterbox">
+                            <input type="text"  placeholder="Search" class="form-control"></div>
                     </form>
                 </li>
             </ul>
@@ -405,13 +405,6 @@ while ($r=mysqli_fetch_assoc($query)){
                 { field: "Mbiemer", title: "Cognome" },
 				  { field: "kot", title: "Totale OK" },
 				  
-				
-					  
-                    
-                    
-
-
-
                 ]
             });
 			
@@ -429,7 +422,6 @@ while ($r=mysqli_fetch_assoc($query)){
                     dataSource.filter = {
                         or: [
                             { path: "Id", filter: "contains", value: value },
-                            
                             { path: "Emer", filter: "contains", value: value },
                             { path: "Mbiemer", filter: "contains", value: value },
 							{ path: "kot", filter: "contains", value: value },
