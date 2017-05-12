@@ -339,13 +339,37 @@ while ($r=mysqli_fetch_assoc($sql)){
 
 
 </div>
+<?php 
+$l=0;$k=0;
+$query = mysqli_query($link,"SELECT id,emer ,mbiemer FROM `operator` ;");
+
+
+
+while ($r=mysqli_fetch_assoc($query)){
+    $id_ki[$l]=$r['id'];
+    $k_emeri[$l]=$r['emer'];
+    $k_mbiemeri[$l]=$r['mbiemer'];
+
+	
+		
+    
+		$l++;
+}
+
+	$prove = mysqli_query($link,"SELECT COUNT(IF(status = 'ok', 1, NULL)) as prove FROM `kliente` ;");
+	
+		$numer[$k]=$r['prove'];
+		$k++;
+
+
+?>
 <script  type="text/javascript">
     jQuery(function ($) {
         var traffic = [
             <?php
-            for($i=0;$i<sizeof($id_k);$i++){
-                echo '{ Id: '.$id_k[$i].', Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'"}';
-                if($i!=sizeof($id_k)-1){
+            for($i=0;$i<sizeof($id_ki);$i++){
+                echo '{ Id: "'.$id_ki[$i].'", Emer: "'.$k_emeri[$i].'", Mbiemer: "'.$k_mbiemeri[$i].'", kot: "'.$numer[$i].'"}';
+                if($i!=sizeof($id_ki)-1){
                     echo ',';
                 }
             }
@@ -371,7 +395,7 @@ while ($r=mysqli_fetch_assoc($sql)){
                 
                 { field: "Emer", title: "Nome" },
                 { field: "Mbiemer", title: "Cognome" },
-				 { field: "codicefiscale", title: "CODICE FISCALE" },
+				  { field: "kot", title: "Totale OK" },
 				  
 				
 					  
@@ -400,7 +424,7 @@ while ($r=mysqli_fetch_assoc($sql)){
                             
                             { path: "Emer", filter: "contains", value: value },
                             { path: "Mbiemer", filter: "contains", value: value },
-							{ path: "codicefiscale", filter: "contains", value: value },
+							{ path: "kot", filter: "contains", value: value },
                             
                         ]
                     };
