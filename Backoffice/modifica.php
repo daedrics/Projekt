@@ -439,7 +439,7 @@ $emri_oper=$rresht["emer"];
                     </ul>
                     <div class="bottom_wrapper clearfix">
                         <div class="message_input_wrapper">
-                            <form method="post" target="frame">
+                            <form method="post" >
                                 <input class="message_input" placeholder="Scrivi le tue note qui..."  type="text" name="enter_message"/>
                         </div>
                         <div class="send_message"
