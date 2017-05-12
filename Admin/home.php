@@ -99,9 +99,9 @@ while ($r=mysqli_fetch_assoc($sql)){
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
 
-    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/dark-bootstrap/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="../../bower_components/shieldui-lite/dist/css/light-bootstrap/all.min.css" />
    <script type="text/javascript" src="indexjs.js"></script>
-    <script type="text/javascript" src="../..//bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
 </head>
 <body style="background:white ">
@@ -138,7 +138,7 @@ while ($r=mysqli_fetch_assoc($sql)){
                 <li class="divider-vertical"></li>
                 <li>
                     <form class="navbar-search">
-                        <input type="text" placeholder="Search" class="form-control">
+                        <input type="text" id="filterbox" placeholder="Search" class="form-control">
                     </form>
                 </li>
             </ul>
@@ -323,11 +323,113 @@ while ($r=mysqli_fetch_assoc($sql)){
 
     </div>
 
+     
+		<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
 
+                        <div class="panel-body">
+                            <div id="shieldui-grid1"></div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
 
 
 
 </div>
+<script  type="text/javascript">
+    jQuery(function ($) {
+        var traffic = [
+            <?php
+            for($i=0;$i<sizeof($id_k);$i++){
+                echo '{ Id: '.$id_k[$i].', Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'"}';
+                if($i!=sizeof($id_k)-1){
+                    echo ',';
+                }
+            }
+            ?>
+                ];
+			
+				
+				
+         $("#shieldui-grid1").shieldGrid({
+                dataSource: {
+            data: traffic
+                },
+                sorting: {
+            multiple: false
+                },
+                rowHover: false,
+                
+					paging:{pageSize:5},
+				
+             
+                columns: [
+                { field: "Id", width: "60px", title: "Id" },
+                
+                { field: "Emer", title: "Nome" },
+                { field: "Mbiemer", title: "Cognome" },
+				 { field: "codicefiscale", title: "CODICE FISCALE" },
+				  
+				
+					  
+                    
+                    
+
+
+
+                ]
+            });
+			
+			
+			
+			        var dataSource = $("#shieldui-grid1").swidget().dataSource,
+            input = $("#filterbox input"),
+            timeout,
+            value;
+        input.on("keydown", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                value = input.val();
+                if (value) {
+                    dataSource.filter = {
+                        or: [
+                            { path: "Id", filter: "contains", value: value },
+                            
+                            { path: "Emer", filter: "contains", value: value },
+                            { path: "Mbiemer", filter: "contains", value: value },
+							{ path: "codicefiscale", filter: "contains", value: value },
+                            
+                        ]
+                    };
+                }
+                else {
+                    dataSource.filter = null;
+                }
+                dataSource.read();
+            }, 300);
+        });
+
+
+
+        });
+		
+		    
+			 
+   
+</script>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 <?php
 include("../db_connect.php");
 if(isset($_POST['modifica'])){
