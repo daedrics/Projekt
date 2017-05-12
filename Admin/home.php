@@ -339,7 +339,14 @@ while ($r=mysqli_fetch_assoc($sql)){
 
 
 </div>
-<?php 
+<?php
+$data=getdate();
+$year=$data['year'];
+$month=$data['mon'];
+
+$data_f=$year.'-'.$month.'-01';
+$data_mb=$year.'-'.$month.'-31';
+
 $l=0;$k=0;
 $query = mysqli_query($link,"SELECT id,emer ,mbiemer FROM `operator` ;");
 
@@ -347,6 +354,7 @@ $query = mysqli_query($link,"SELECT id,emer ,mbiemer FROM `operator` ;");
 
 while ($r=mysqli_fetch_assoc($query)){
     $id_ki[$l]=$r['id'];
+    $id_kot=$r['id'];
     $k_emeri[$l]=$r['emer'];
     $k_mbiemeri[$l]=$r['mbiemer'];
 
@@ -354,13 +362,13 @@ while ($r=mysqli_fetch_assoc($query)){
 		
     
 		$l++;
-}
 
-	$prove = mysqli_query($link,"SELECT COUNT(IF(status = 'ok', 1, NULL)) as prove FROM `kliente` ;");
-	
-		$numer[$k]=$r['prove'];
+
+	$prove = mysqli_query($link,"SELECT COUNT(IF(status = 'ok', 1, NULL)) as prove FROM `kliente` WHERE `#id_operator` ='$id_kot' AND data >='$data_f' AND data <= '$data_mb';");
+	    $row=mysqli_fetch_assoc($prove);
+		$numer[$k]=$row['prove'];
 		$k++;
-
+}
 
 ?>
 <script  type="text/javascript">
