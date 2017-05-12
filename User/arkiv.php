@@ -43,160 +43,7 @@ else{
     <script type="text/javascript" src="../../bower_components/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
 </head>
 
-<?php
-include ("../db_connect.php");
-$shieldUI=1;
-$pageSize=1;
-if(isset($_POST['cerca'])){
-    $shieldUI=2;
-    $pageSize=2;
-    $dat_f=$_POST['d_in'];
-    $dat_mb=$_POST['d_out'];
- if ($dat_mb==null){
-		$query = mysqli_query($link, "SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND  `#id_operator` ='$pid'");
-	}
-	else if ($dat_f==null ){
-		if($dat_mb==null){
-			
-		$query = mysqli_query($link, "SELECT * FROM `kliente` WHERE `data` >= '01-01-1990' AND `data` <= '01-01-3000' AND  `#id_operator`='$pid'");
-		}
-		else{
-			$query = mysqli_query($link, "SELECT * FROM `kliente` WHERE  `data` <= '$dat_mb' AND  `#id_operator` = '$pid'");
-		}
-	}
-	else{
-    $query = mysqli_query($link, "SELECT * FROM `kliente` WHERE `data` >= '$dat_f' AND `data` <= '$dat_mb' AND  `#id_operator` ='$pid'");
-	}
 
-    $i=0;
-    while ($r=mysqli_fetch_assoc($query)){
-        $id_kl[$i]=$r['id'];
-        $datal[$i]=$r['data'];
-        $k_emerl[$i]=$r['emer'];
-        $k_mbiemerl[$i]=$r['mbiemer'];
-        $statusl[$i]=$r['status'];
-        $codicefiscalel[$i]=$r['codice_fiscale'];
-        $telfissol[$i]=$r['numero_fisso'];
-        $rcelll[$i]=$r['recapito_cell'];
-        $motivacionel[$i]=$r['motivazione'];
-        $i++;
-    }
-
-    echo '<script type="text/javascript">
-                jQuery(function ($) {
-                    var traffic= [';
-
-    for($i=0;$i<sizeof($id_kl);$i++){
-        echo '{ Id: '.$id_kl[$i].', Data: "'.$datal[$i].'", Emer: "'.$k_emerl[$i].'", Mbiemer: "'.$k_mbiemerl[$i].'",codicefiscale : "'.$codicefiscalel[$i].'",telfisso:"'.$telfissol[$i].'",rcell:"'.$rcelll[$i].'",
-				motivacione :"'.$motivacionel[$i].'", Status: "'.$statusl[$i].'"}';
-        if($i!=sizeof($id_kl)-1){
-            echo ',';
-        }
-    }
-    echo "];";
-    echo '
-    $("#shieldui-grid2").shieldGrid({
-                dataSource: {
-            data: traffic
-                },
-                sorting: {
-            multiple: false
-                },
-                rowHover: false,
-                
-					paging: {
-            pageSize: 5
-            },
-				
-            
-            events: {
-                dataBound: dataBoundFunction
-            },
-                columns: [
-                { field: "Id", width: "60px", title: "Id" },
-                { field: "Data", title: "Data" },
-                { field: "Emer", title: "Nome" },
-                { field: "Mbiemer", title: "Cognome" },
-                 { field: "codicefiscale", title: "CODICE FISCALE" },
-				  { field: "telfisso", title: "TEL FISSO" },
-			     { field: "rcell", title: "R.CELL" },
-				 {field:"motivacione",
-                        width: "150px",
-                        title: "Motivazione",
-                        columnTemplate: function (cell, item) {
-                            var transport = item["Id"];
-                            var text= item["motivacione"];
-                            $(\'<button data-toggle="modal" data-target="#2Modal" value="in Lavoracione" style=" height: 25px;" id="cell">Leggi Motivazione</button>\')
-                                .appendTo(cell).click(function(){
-                                $("#text_leggi").text(text);
-                            });
-                                
-                        }
-                    },
-                 { field: "Status", title: "Stato" },
-                 {
-                        width: "80px",
-                        title: "Modifica",
-                        columnTemplate: function (cell, item) {
-                            var transport = item["Id"];
-                            var stato = item["Status"];
-                            if (stato == \'KO\' || stato == \'ko\' || stato == \'Ko\' || stato == \'recuperato\'){
-
-                                $(\'<button style="margin-left: 10%" ><img src="edit.png" style="width: 40px; height: 25px;"/></button>\')
-                                    .appendTo(cell)
-                                    .shieldButton({
-                                        events: {
-                                            click: function () {
-                                                location.href = \'index.php?id=\' + transport + \'\';
-                                            }
-                                        }
-                                    });
-
-                            }
-                        }
-                    },
-                ]
-            });
-             var dataSource = $("#shieldui-grid2").swidget().dataSource,
-            input = $("#filterbox input"),
-            timeout,
-            value;
-        input.on("keydown", function () {
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                value = input.val();
-                if (value) {
-                    dataSource.filter = {
-                        or: [
-                            { path: "Id", filter: "contains", value: value },
-                            { path: "Data", filter: "contains", value: value },
-                            { path: "Emer", filter: "contains", value: value },
-                            { path: "Mbiemer", filter: "contains", value: value },
-                            { path: "codicefiscale", filter: "contains", value: value },
-                            { path: "telfisso", filter: "contains", value: value },
-                            { path: "rcell", filter: "contains", value: value },
-                            { path: "motivacione", filter: "contains", value: value },
-                            { path: "Status", filter: "contains", value: value }
-                        ]
-                    };
-                }
-                else {
-                    dataSource.filter = null;
-                }
-                dataSource.read();
-            }, 300);
-        });
-         });
-          function setPage2() {
-        var x=document.getElementById(\'elementi\').value;
-        $("#shieldui-grid2").swidget().pager.pageSize(x); // Sets the page size to 4
-        $("#shieldui-grid2").refresh();
-    }
-    
-    </script>';
-}
-
-?>
 
 
 <body style="background:white ">
@@ -362,25 +209,88 @@ if(isset($_POST['cerca'])){
                 </div>
 			</div>
 		</div>
+            <script>
+                $(document).ready(function(){
+
+
+
+                    $("#d_button").click(function(){
+                        var data_fillim= document.getElementById("dataf").value;
+                        var data_mbarim= document.getElementById("datamb").value;
+
+
+                        if(data_fillim=='' && data_mbarim == '')
+                            $("#shieldui-grid1").swidget().filter({ path: "Data", filter: "notnull", value: "" });
+
+                        else if(data_mbarim== ''){
+                            $("#shieldui-grid1").swidget().filter({ path: "Data", filter: ">=", value: new Date(data_fillim) });
+
+                        }
+
+                        else if(data_fillim==''){
+                            $("#shieldui-grid1").swidget().filter({ path: "Data", filter: "<=", value: new Date(data_mbarim) });
+
+                        }
+
+                        else{
+                            $("#shieldui-grid1").swidget().filter(
+
+                                {
+                                    and: [
+                                        { path: "Data", filter: ">=", value: new Date(data_fillim) },
+                                        {
+                                            and: [
+
+                                                { path: "Data", filter: "<=", value: new Date (data_mbarim) }
+                                            ]
+                                        }
+                                    ]
+                                }
+
+                            );}
+                    });
+                });
+            </script>
+            <script>
+                $(document).ready(function(){
+                    $("#d_button1").click(function(){
+                        var data_fillim= document.getElementById("dataf").value;
+                        var data_mbarim= document.getElementById("datamb").value;
+                        if(data_fillim!='' || data_mbarim!=''){
+                            document.getElementById("dataf").value = '';
+                            document.getElementById("datamb").value = '';
+                            $("#shieldui-grid1").swidget().filter({ path: "Data", filter: "notnull", value: "" });
+                        }
+                    });
+
+
+
+
+                    });
+                    </script>
             <div style="margin-left:17px ;padding-bottom :30px" class="row">
 
                 <div class="form-group col-lg-2">
-                    <form method="post">
+
                         <label>Data inizio</label>
-                        <input type="date" class="form-control" name="d_in" >
+                        <input type="date" class="form-control" name="d_in" id="dataf" >
                 </div>
                 <div class="form-group col-lg-2">
                     <label>Data fine</label>
-                    <input type="date" class="form-control" name="d_out">
+                    <input type="date" class="form-control" name="d_out" id="datamb">
                 </div>
                 <div style="padding-top:25px" class="form-group col-lg-1 ">
 
-                    <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca"></form>
+                    <input type="submit" class="form-control btn btn-primary" value="cerca" id="d_button" name="cerca">
+                </div>
+                <div style="padding-top:25px" class="form-group col-lg-1 ">
+
+                    <input type="button" class="form-control btn btn-success" value="reset" id="d_button1" >
                 </div>
                 <div class="col-lg-1"style="padding-top:25px"><label style="font-size:18px">Visualizza</label></div>
                 <div style="padding-top:23px"class="col-lg-1 ">
 
-                    <select  class="form-control" onchange="setPage<?php echo $pageSize;?>();" id="elementi">
+                    <select  class="form-control" onchange="setPage1();" id="elementi">
 
                         <option value="5" selected>5</option>
                         <option value="10">10</option>
@@ -396,7 +306,7 @@ if(isset($_POST['cerca'])){
             <div class="col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-body">
-                        <div id="shieldui-grid<?php echo $shieldUI;?>"></div>
+                        <div id="shieldui-grid1"></div>
                     </div>
                 </div>
             </div>
@@ -412,7 +322,7 @@ if(isset($_POST['cerca'])){
         var traffic = [
             <?php
             for($i=0;$i<sizeof($id_k);$i++){
-                echo '{ Id: '.$id_k[$i].', Data: "'.$data[$i].'", Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'",telfisso:"'.$telfisso[$i].'",rcell:"'.$rcell[$i].'",
+                echo '{ Id: '.$id_k[$i].', Data: new Date("'.$data[$i].'"), Emer: "'.$k_emer[$i].'", Mbiemer: "'.$k_mbiemer[$i].'",codicefiscale : "'.$codicefiscale[$i].'",telfisso:"'.$telfisso[$i].'",rcell:"'.$rcell[$i].'",
 				motivacione :"'.$motivacione[$i].'", Status: "'.$status[$i].'"}';
                 if($i!=sizeof($id_k)-1){
                     echo ',';
@@ -437,7 +347,14 @@ if(isset($_POST['cerca'])){
             },
                 columns: [
                 { field: "Id", width: "60px", title: "Id" },
-                { field: "Data", title: "Data" },
+                { field: "Data", title: "Data" ,
+                    format: function(value) {
+                        var month=value.getMonth()+1;
+                        if(month<10)
+                            month="0"+month;
+                        return value.getDate()+'-'+month+'-'+value.getFullYear();
+                    }
+                },
                 { field: "Emer", title: "Nome" },
                 { field: "Mbiemer", title: "Cognome" },
                     { field: "codicefiscale", title: "CODICE FISCALE" },
