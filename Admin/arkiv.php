@@ -311,6 +311,26 @@ echo '
             <img src="icon.png">
         </div>
       </div>
+        <script>
+            $(document).ready(function(){
+                $("#buton2").click(function(){
+                    $("#shieldui-grid1").swidget().filter({ path: "Status", filter: "eq", value: "ok" });
+                });
+
+                $("#buton1").click(function(){
+                    $("#shieldui-grid1").swidget().filter({ path: "Status", filter: "notnull", value: "" });
+                });
+                $("#buton3").click(function(){
+                    $("#shieldui-grid1").swidget().filter({ path: "Status", filter: "eq", value: "recuperato" });
+                });
+                $("#buton4").click(function(){
+                    $("#shieldui-grid1").swidget().filter({ path: "Status", filter: "eq", value: "ko" });
+                });
+                $("#buton5").click(function(){
+                    $("#shieldui-grid1").swidget().filter({ path: "Status", filter: "eq", value: "wip" });
+                });
+            });
+        </script>
       <div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
@@ -320,11 +340,11 @@ echo '
 					<table class="table">
 					<tbody>
 					<tr>
-					<td><button type="button" class="btn btn-primary">Totale <span class="badge"><?php echo $tot.'('.$toti ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-success">OK <span class="badge"><?php echo $ok.'('.number_format($oki,2)?>%)</span></button></td>
-					<td><button type="button" class="btn btn-warning">Recuperato <span class="badge"><?php echo $pritje.'('.number_format($pritjei,2) ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-danger">KO <span class="badge"><?php echo $ko.'('.number_format($koi,2) ?>%)</span></button></td>
-					<td><button type="button" class="btn btn-default">WIP <span class="badge"><?php echo $wip.'('.number_format($wipi,2) ?>%)</span></button></td>
+					<td><button type="button" id="buton1" class="btn btn-primary">Totale <span class="badge"><?php echo $tot.'('.$toti ?>%)</span></button></td>
+					<td><button type="button" id="buton2" class="btn btn-success">OK <span class="badge"><?php echo $ok.'('.number_format($oki,2)?>%)</span></button></td>
+					<td><button type="button" id="buton3" class="btn btn-warning">Recuperato <span class="badge"><?php echo $pritje.'('.number_format($pritjei,2) ?>%)</span></button></td>
+					<td><button type="button" id="buton4" class="btn btn-danger">KO <span class="badge"><?php echo $ko.'('.number_format($koi,2) ?>%)</span></button></td>
+					<td><button type="button" id="buton5" class="btn btn-default">WIP <span class="badge"><?php echo $wip.'('.number_format($wipi,2) ?>%)</span></button></td>
 					</tr>
 					</tbody>
 					</table>
