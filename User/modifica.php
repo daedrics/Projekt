@@ -103,11 +103,10 @@ $emri_oper=$rresht["emer"];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.php">CRM</a>
+            <a class="navbar-brand" href="arkiv.php">CRM</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul id="active" class="nav navbar-nav side-nav">
-                <li ><a href="home.php"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="insert.php"><i class="fa fa-level-up"></i> Inserisci</a></li>
                 <li><a href="arkiv.php"><i class="fa fa-archive"></i> Archivio</a></li>
 
